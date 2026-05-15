@@ -73,9 +73,9 @@ export function renderPuzzle4(app) {
   </section>
   `;
 
-  
+
   enableAutoUppercase(app);
-  
+
   const pauseBtn = app.querySelector("#pause-btn");
 
   // ---------------- HELP + INFO MODULES ----------------
@@ -104,8 +104,8 @@ export function renderPuzzle4(app) {
 
     if (pauseBtn) {
       pauseBtn.innerHTML = timerState.paused
-        ? '<img src="../images/play-btn.png" alt="Play" class="btn-icon">'
-        : '<img src="../images/pause-btn.png" alt="Pause" class="btn-icon">';
+        ? `<img src="${BASE_PATH}/images/play-btn.png" alt="Play" class="btn-icon">`
+        : `<img src="${BASE_PATH}/images/pause-btn.png" alt="Pause" class="btn-icon">`;
     }
 
     const paused = timerState.paused;
