@@ -27,7 +27,7 @@ export async function loadLanguage(lang) {
     return;
   }
 
-  const res = await fetch(`/lang/${lang}.json`);
+  const res = await fetch(`../lang/${lang}.json`);
   const data = await res.json();
 
   cache[lang] = data;

@@ -30,10 +30,10 @@ export function renderPuzzle6(app) {
 
     <!-- HELP + INFO -->
     <!-- HELP ICON (bottom left) -->
-    <img src="../images/help-icon.png" id="help-btn" class="corner-btn bottom-left" alt="Help">
+    <img src="./images/help-icon.png" id="help-btn" class="corner-btn bottom-left" alt="Help">
 
     <!-- INFO ICON (bottom right) -->
-    <img src="../images/info-icon.png" id="info-btn" class="corner-btn bottom-right" alt="Info">
+    <img src="./images/info-icon.png" id="info-btn" class="corner-btn bottom-right" alt="Info">
 
     <!-- STORY -->
     <div class="content-box1">
@@ -195,8 +195,8 @@ export function renderPuzzle6(app) {
 
     if (pauseBtn) {
       pauseBtn.innerHTML = timerState.paused
-        ? '<img src="../images/play-btn.png" alt="Play" class="btn-icon">'
-        : '<img src="../images/pause-btn.png" alt="Pause" class="btn-icon">';
+        ? '<img src="./images/play-btn.png" alt="Play" class="btn-icon">'
+        : '<img src="./images/pause-btn.png" alt="Pause" class="btn-icon">';
     }
     const paused = timerState.paused;
 

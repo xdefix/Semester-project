@@ -81,7 +81,7 @@ export function renderSettingsOverlay() {
         <div class="ticks" id="music-ticks"></div>
 
         <img
-          src="../images/knob.png"
+          src="./images/knob.png"
           class="knob"
           id="music-dial"
         />
@@ -103,7 +103,7 @@ export function renderSettingsOverlay() {
         <div class="ticks" id="sfx-ticks"></div>
 
         <img
-          src="../images/knob.png"
+          src="./images/knob.png"
           class="knob"
           id="sfx-dial"
         />
