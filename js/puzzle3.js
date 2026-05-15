@@ -151,6 +151,8 @@ export function renderPuzzle3(app) {
   // ---------------- TIMER ----------------
   function updateUI() {
     const timerEl = app.querySelector("#timer");
+    const helpBtn = app.querySelector("#help-btn");
+    const infoBtn = app.querySelector("#info-btn");
 
     if (timerEl) {
       timerEl.textContent = formatTime(getRemainingTime());
