@@ -28,8 +28,11 @@ export async function loadLanguage(lang) {
   }
 
   const res = await fetch(`../lang/${lang}.json`);
+  if (!res.ok) {
+    throw new Error("Language file not found");
+  }
   const data = await res.json();
-  
+
   cache[lang] = data;
   i18nState.translations = data;
 
