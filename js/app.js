@@ -1,4 +1,4 @@
-const window,BASE_PATH = "/Semester-project/";
+const BASE_PATH = "/Semester-project/";
 import { renderLanding } from "./landing.js";
 import { renderDownload } from "./download.js";
 import { renderIntro } from "./intro.js";
