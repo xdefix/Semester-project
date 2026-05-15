@@ -30,8 +30,8 @@ export function renderPuzzle3(app) {
     </div>
 
     <!-- HELP + INFO -->
-    <img src="../images/help-icon.png" id="help-btn" class="corner-btn bottom-left" alt="Help">
-    <img src="../images/info-icon.png" id="info-btn" class="corner-btn bottom-right" alt="Info">
+    <img src="${BASE_PATH}images/help-icon.png" id="help-btn" class="corner-btn bottom-left" alt="Help">
+    <img src="${BASE_PATH}images/info-icon.png" id="info-btn" class="corner-btn bottom-right" alt="Info">
 
 
     <!-- STORY -->
@@ -158,8 +158,8 @@ export function renderPuzzle3(app) {
 
     if (pauseBtn) {
       pauseBtn.innerHTML = timerState.paused
-        ? '<img src="../images/play-btn.png" alt="Play" class="btn-icon">'
-        : '<img src="../images/pause-btn.png" alt="Pause" class="btn-icon">';
+        ? '<img src="${BASE_PATH}images/play-btn.png" alt="Play" class="btn-icon">'
+        : '<img src="${BASE_PATH}images/pause-btn.png" alt="Pause" class="btn-icon">';
     }
 
     const paused = timerState.paused;

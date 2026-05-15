@@ -33,7 +33,7 @@ export function renderPuzzle2(app) {
 
     <!-- HELP -->
     <img
-      src="../images/help-icon.png"
+      src="${BASE_PATH}images/help-icon.png"
       id="help-btn"
       class="corner-btn bottom-left"
       alt="Help"
@@ -41,7 +41,7 @@ export function renderPuzzle2(app) {
 
     <!-- INFO -->
     <img
-      src="../images/info-icon.png"
+      src="${BASE_PATH}images/info-icon.png"
       id="info-btn"
       class="corner-btn bottom-right"
       alt="Info"
@@ -84,7 +84,7 @@ export function renderPuzzle2(app) {
         <img
           id="route-image"
           class="route-image"
-          src="../images/puzzle2/start.png"
+          src="${BASE_PATH}images/puzzle2/start.png"
           alt="Route image"
         >
       </div>
@@ -141,7 +141,7 @@ export function renderPuzzle2(app) {
   const nodes = {
     start: {
       step: 0,
-      image: "../images/puzzle2/start.png",
+      image: "${BASE_PATH}images/puzzle2/start.png",
       location: "Elli's House — Schubert Straße",
       elli: t("puzzle2_start_elli"),
       choices: [
@@ -153,7 +153,7 @@ export function renderPuzzle2(app) {
 
     schubert: {
       step: 1,
-      image: "../images/puzzle2/schubert.png",
+      image: "${BASE_PATH}images/puzzle2/schubert.png",
       location: "Schubert Straße",
       elli: t("puzzle2_schubert_elli"),
       choices: [
@@ -174,7 +174,7 @@ export function renderPuzzle2(app) {
 
     maria_theresia: {
       step: 2,
-      image: "../images/puzzle2/maria-theresia.png",
+      image: "${BASE_PATH}images/puzzle2/maria-theresia.png",
       location: "Maria Theresia Straße",
       elli: t("puzzle2_maria_elli"),
       choices: [
@@ -195,7 +195,7 @@ export function renderPuzzle2(app) {
 
     josef: {
       step: 3,
-      image: "../images/puzzle2/josef.png",
+      image: "${BASE_PATH}images/puzzle2/josef.png",
       location: "Josef Straße",
       elli: t("puzzle2_josef_elli"),
       choices: [
@@ -212,7 +212,7 @@ export function renderPuzzle2(app) {
 
     schiessstatt: {
       step: 4,
-      image: "../images/puzzle2/schiessstatt.png",
+      image: "${BASE_PATH}images/puzzle2/schiessstatt.png",
       location: "Schießstatt Promenade",
       elli: t("puzzle2_schiessstatt_elli"),
       choices: [
@@ -233,7 +233,7 @@ export function renderPuzzle2(app) {
 
     prater: {
       step: 5,
-      image: "../images/puzzle2/prater.png",
+      image: "${BASE_PATH}images/puzzle2/prater.png",
       location: "Prater Straße",
       elli: t("puzzle2_prater_elli"),
       choices: [
@@ -250,7 +250,7 @@ export function renderPuzzle2(app) {
 
     ring: {
       step: 5,
-      image: "../images/puzzle2/ring.png",
+      image: "${BASE_PATH}images/puzzle2/ring.png",
       location: "Schießstatt Ring",
       elli: t("puzzle2_ring_elli"),
       choices: [
@@ -268,7 +268,7 @@ export function renderPuzzle2(app) {
     dead_jahn: {
       type: "dead",
       step: 0,
-      image: "../images/puzzle2/fail.png",
+      image: "${BASE_PATH}images/puzzle2/fail.png",
       location: "Jahn Straße",
       text: t("puzzle2_dead_jahn")
     },
@@ -276,7 +276,7 @@ export function renderPuzzle2(app) {
     dead_gasser: {
       type: "dead",
       step: 0,
-      image: "../images/puzzle2/fail.png",
+      image: "${BASE_PATH}images/puzzle2/fail.png",
       location: "Gasser Straße",
       text: t("puzzle2_dead_gasser")
     },
@@ -284,7 +284,7 @@ export function renderPuzzle2(app) {
     dead_mariazeller: {
       type: "dead",
       step: 1,
-      image: "../images/puzzle2/fail.png",
+      image: "${BASE_PATH}images/puzzle2/fail.png",
       location: "Mariazeller Straße",
       text: t("puzzle2_dead_mariazeller")
     },
@@ -292,7 +292,7 @@ export function renderPuzzle2(app) {
     dead_mariazeller_2: {
       type: "dead",
       step: 2,
-      image: "../images/puzzle2/fail.png",
+      image: "${BASE_PATH}images/puzzle2/fail.png",
       location: "Kalcher → Mariazeller",
       text: t("puzzle2_dead_mariazeller2")
     },
@@ -300,7 +300,7 @@ export function renderPuzzle2(app) {
     dead_linzer: {
       type: "dead",
       step: 3,
-      image: "../images/puzzle2/fail.png",
+      image: "${BASE_PATH}images/puzzle2/fail.png",
       location: "Linzer Straße",
       text: t("puzzle2_dead_linzer")
     },
@@ -308,7 +308,7 @@ export function renderPuzzle2(app) {
     dead_brunn: {
       type: "dead",
       step: 4,
-      image: "../images/puzzle2/fail.png",
+      image: "${BASE_PATH}images/puzzle2/fail.png",
       location: "Brunn Gasse",
       text: t("puzzle2_dead_brunn")
     },
@@ -316,7 +316,7 @@ export function renderPuzzle2(app) {
     dead_wald: {
       type: "dead",
       step: 5,
-      image: "../images/puzzle2/fail.png",
+      image: "${BASE_PATH}images/puzzle2/fail.png",
       location: "Waldstraße",
       text: t("puzzle2_dead_wald")
     }
@@ -379,7 +379,7 @@ export function renderPuzzle2(app) {
     if (id === "success") {
       renderPips(STEPS);
 
-      updateImage("../images/puzzle2/success.png");
+      updateImage("${BASE_PATH}images/puzzle2/success.png");
 
       locationEl.textContent =
         t("puzzle2_success_location");
@@ -495,8 +495,8 @@ export function renderPuzzle2(app) {
 
     if (pauseBtn) {
       pauseBtn.innerHTML = timerState.paused
-        ? '<img src="../images/play-btn.png" alt="Play" class="btn-icon">'
-        : '<img src="../images/pause-btn.png" alt="Pause" class="btn-icon">';
+        ? '<img src="${BASE_PATH}images/play-btn.png" alt="Play" class="btn-icon">'
+        : '<img src="${BASE_PATH}images/pause-btn.png" alt="Pause" class="btn-icon">';
     }
 
     const paused = timerState.paused;

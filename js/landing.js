@@ -10,7 +10,7 @@ app.innerHTML = `
       <div class="landing-description-row">
         <p>${t("description")}</p>
         <img 
-          src="../images/img-landing.png" 
+          src="${BASE_PATH}images/img-landing.png" 
           alt="Landing illustration"
           class="landing-image"
         />

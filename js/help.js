@@ -10,11 +10,11 @@ export function createHelpOverlay(app, { t, clues, reveals, puzzleId }) {
 
     const helpBtn = document.getElementById("help-btn");
 
-    const normalHelpImg = "../images/help-icon.png";
-    const cooldownHelpImg = "../images/help-icon-cooldown.png";
+    const normalHelpImg = "${BASE_PATH}images/help-icon.png";
+    const cooldownHelpImg = "${BASE_PATH}images/help-icon-cooldown.png";
 
-    const normalOverlayBg = "../images/help-overlay.png";
-    const cooldownOverlayBg = "../images/help-overlay-cooldown.png";
+    const normalOverlayBg = "${BASE_PATH}images/help-overlay.png";
+    const cooldownOverlayBg = "${BASE_PATH}images/help-overlay-cooldown.png";
 
     let interval = null;
 
