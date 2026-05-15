@@ -29,7 +29,7 @@ export async function loadLanguage(lang) {
 
   const res = await fetch(`../lang/${lang}.json`);
   const data = await res.json();
-
+  
   cache[lang] = data;
   i18nState.translations = data;
 

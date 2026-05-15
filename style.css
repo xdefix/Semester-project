@@ -121,7 +121,7 @@ button {
 
   margin: 40px auto;
 
-  background-image: url("./images/text-background.png");
+  background-image: url("../images/text-background.png");
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -152,7 +152,7 @@ button {
 
   margin: 40px auto;
 
-  background-image: url("./images/text-background.png");
+  background-image: url("../images/text-background.png");
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -196,7 +196,7 @@ button {
   max-width: 500px;
   margin: 0 auto 40px auto;
 
-  background-image: url("./images/text-background.png");
+  background-image: url("../images/text-background.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -747,7 +747,7 @@ input {
   height: 100vh;
   aspect-ratio: 3072 / 2048;
 
-  background-image: url("./images/info-overlay.png");
+  background-image: url("../images/info-overlay.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% auto;
@@ -851,7 +851,7 @@ input {
 
   border: none;
 
-  background: url("./images/button.png") center/55% 100% no-repeat;
+  background: url("../images/button.png") center/55% 100% no-repeat;
   background-color: transparent;
 
   color: #f3e6cf;
@@ -879,7 +879,7 @@ input {
 
   border: none;
 
-  background: url("./images/button.png") center/55% 100% no-repeat;
+  background: url("../images/button.png") center/55% 100% no-repeat;
   background-color: transparent;
 
   color: #f3e6cf;
@@ -907,7 +907,7 @@ input {
   width: clamp(90px, 8vw, 160px);
   height: clamp(90px, 8vw, 160px);
 
-  background: url("./images/settings-icon.png") center/contain no-repeat;
+  background: url("../images/settings-icon.png") center/contain no-repeat;
   background-color: transparent;
 
   border: none;
@@ -950,7 +950,7 @@ input {
   align-items: center;
   justify-content: flex-start;
 
-  background-image: url("./images/settings-overlay.png");
+  background-image: url("../images/settings-overlay.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -976,7 +976,7 @@ input {
 
   border: none;
 
-  background: url("./images/button.png") center/70% 130% no-repeat;
+  background: url("../images/button.png") center/70% 130% no-repeat;
   background-color: transparent;
 
   font-size: clamp(24px, 3vw, 34px);
@@ -1236,7 +1236,7 @@ input {
   width: 520px;
   height: 200px;
 
-  background-image: url("./images/settings-overlay.png");
+  background-image: url("../images/settings-overlay.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -1272,7 +1272,7 @@ input {
 
   border: none;
 
-  background: url("./images/button.png") center/85% 140% no-repeat;
+  background: url("../images/button.png") center/85% 140% no-repeat;
   background-color: transparent;
 
   color: #f3e6cf;
@@ -1317,7 +1317,7 @@ input {
   width: 520px;
   height: 200px;
 
-  background-image: url("./images/elli-talks.png");
+  background-image: url("../images/elli-talks.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -1420,7 +1420,7 @@ input {
 
   border: none;
 
-  background: url("./images/button.png") center/55% 100% no-repeat;
+  background: url("../images/button.png") center/55% 100% no-repeat;
   background-color: transparent;
 
   color: #f3e6cf;
@@ -1484,7 +1484,7 @@ input:-webkit-autofill:active {
   align-items: center;
   justify-content: center;
 
-  background-image: url("./images/page-needed.png");
+  background-image: url("../images/page-needed.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 80% 150%;
@@ -1717,7 +1717,7 @@ input:-webkit-autofill:active {
 
   margin: 40px auto;
 
-  background-image: url("./images/text-background.png");
+  background-image: url("../images/text-background.png");
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -1764,7 +1764,7 @@ input:-webkit-autofill:active {
   /* full screen height */
   width: 100vw;
 
-  background-image: url("./images/files-bg.png");
+  background-image: url("../images/files-bg.png");
   background-size: cover;
   /* fills whole screen */
   background-position: center;
@@ -1781,7 +1781,7 @@ input:-webkit-autofill:active {
   /* full screen height */
   width: 100vw;
 
-  background-image: url("./images/office-bg.png");
+  background-image: url("../images/office-bg.png");
   background-size: cover;
   /* fills whole screen */
   background-position: center;
@@ -1798,7 +1798,7 @@ input:-webkit-autofill:active {
   /* full screen height */
   width: 100vw;
 
-  background-image: url("./images/street-bg.png");
+  background-image: url("../images/street-bg.png");
   background-size: cover;
   /* fills whole screen */
   background-position: center;
@@ -1815,7 +1815,7 @@ input:-webkit-autofill:active {
   /* full screen height */
   width: 100vw;
 
-  background-image: url("./images/safe-house-out-bg.png");
+  background-image: url("../images/safe-house-out-bg.png");
   background-size: cover;
   /* fills whole screen */
   background-position: center;
@@ -1832,7 +1832,7 @@ input:-webkit-autofill:active {
   /* full screen height */
   width: 100vw;
 
-  background-image: url("./images/safe-house-in-bg.png");
+  background-image: url("../images/safe-house-in-bg.png");
   background-size: cover;
   /* fills whole screen */
   background-position: center;
@@ -1849,7 +1849,7 @@ input:-webkit-autofill:active {
   /* full screen height */
   width: 100vw;
 
-  background-image: url("./images/end-bg.png");
+  background-image: url("../images/end-bg.png");
   background-size: cover;
   /* fills whole screen */
   background-position: center;
