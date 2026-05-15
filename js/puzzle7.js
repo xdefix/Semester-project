@@ -29,7 +29,7 @@ export function renderPuzzle7(app) {
     </div>
 
     <!-- HELP ICON (bottom left) -->
-    <img src="${BASE_PATH}images/help-icon.png" id="help-btn" class="corner-btn bottom-left" alt="Help">
+    <img src="${window.BASE_PATH}images/help-icon.png" id="help-btn" class="corner-btn bottom-left" alt="Help">
 
 
     <!-- STORY -->
@@ -43,7 +43,7 @@ export function renderPuzzle7(app) {
        </div>
       </div>
       <p>${t("puzzle7_story")}</p>
-      <img src="${BASE_PATH}images/letter-info.png" alt="Mauthausen" class="story-img"/>
+      <img src="${window.BASE_PATH}images/letter-info.png" alt="Mauthausen" class="story-img"/>
       <div class="answer-input-wrapper">
        <span class="report-label">${t("final_loc")}:</span>
 
@@ -93,8 +93,8 @@ export function renderPuzzle7(app) {
 
     if (pauseBtn) {
       pauseBtn.innerHTML = timerState.paused
-        ? '<img src="${BASE_PATH}images/play-btn.png" alt="Play" class="btn-icon">'
-        : '<img src="${BASE_PATH}images/pause-btn.png" alt="Pause" class="btn-icon">';
+        ? '<img src="${window.BASE_PATH}images/play-btn.png" alt="Play" class="btn-icon">'
+        : '<img src="${window.BASE_PATH}images/pause-btn.png" alt="Pause" class="btn-icon">';
     }
 
     const paused = timerState.paused;

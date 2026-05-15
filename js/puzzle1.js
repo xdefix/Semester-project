@@ -28,9 +28,9 @@ export function renderPuzzle1(app) {
     </div>
 
     <!-- HELP + INFO -->
-    <img src="${BASE_PATH}images/help-icon.png" id="help-btn" class="corner-btn bottom-left" alt="Help">
+    <img src="${window.BASE_PATH}images/help-icon.png" id="help-btn" class="corner-btn bottom-left" alt="Help">
 
-    <img src="${BASE_PATH}images/info-icon.png" id="info-btn" class="corner-btn bottom-right" alt="Info">
+    <img src="${window.BASE_PATH}images/info-icon.png" id="info-btn" class="corner-btn bottom-right" alt="Info">
 
     <!-- STORY -->
     <div class="content-box1">
@@ -180,8 +180,8 @@ export function renderPuzzle1(app) {
 
     if (pauseBtn) {
       pauseBtn.innerHTML = timerState.paused
-        ? '<img src="${BASE_PATH}images/play-btn.png" alt="Play" class="btn-icon">'
-        : '<img src="${BASE_PATH}images/pause-btn.png" alt="Pause" class="btn-icon">';
+        ? '<img src="${window.BASE_PATH}images/play-btn.png" alt="Play" class="btn-icon">'
+        : '<img src="${window.BASE_PATH}images/pause-btn.png" alt="Pause" class="btn-icon">';
     }
 
     const paused = timerState.paused;

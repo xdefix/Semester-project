@@ -27,7 +27,7 @@ export async function loadLanguage(lang) {
     return;
   }
 
-  const res = await fetch(`${BASE_PATH}lang/${lang}.json`);
+  const res = await fetch(`${window.BASE_PATH}lang/${lang}.json`);
   if (!res.ok) {
     throw new Error("Language file not found");
   }
