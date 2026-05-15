@@ -105,6 +105,15 @@ export function renderPuzzle7(app) {
       if (el.id !== "pause-btn") el.disabled = paused;
     });
 
+    
+    // disable help/info while paused
+    [helpBtn, infoBtn].forEach(el => {
+      if (el) {
+        el.style.pointerEvents = paused ? "none" : "auto";
+        el.style.opacity = paused ? "0.5" : "1"; // optional visual feedback
+      }
+    });
+
     // sync overlays with pause state
     help.update(paused);
   }

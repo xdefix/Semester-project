@@ -170,6 +170,15 @@ export function renderPuzzle3(app) {
       if (el.id !== "pause-btn") el.disabled = paused;
     });
 
+
+    // disable help/info while paused
+    [helpBtn, infoBtn].forEach(el => {
+      if (el) {
+        el.style.pointerEvents = paused ? "none" : "auto";
+        el.style.opacity = paused ? "0.5" : "1"; // optional visual feedback
+      }
+    });
+
     help.update(paused);
     info.update(paused);
   }
