@@ -43,8 +43,8 @@ export function renderStoryPuzzle2(app) {
       formatTime(getRemainingTime());
 
       pauseBtn.innerHTML = timerState.paused
-        ? '<img src="${window.BASE_PATH}images/play-btn.png" alt="Play" class="btn-icon">'
-        : '<img src="${window.BASE_PATH}images/pause-btn.png" alt="Pause" class="btn-icon">';
+        ? '<img src="../images/play-btn.png" alt="Play" class="btn-icon">'
+        : '<img src="../images/pause-btn.png" alt="Pause" class="btn-icon">';
 
     app.querySelectorAll("button").forEach(b => {
       if (b.id !== "pause-btn") b.disabled = timerState.paused;
