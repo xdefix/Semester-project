@@ -41,10 +41,6 @@ export function createHelpOverlay(
     overlay.innerHTML = `
     <div class="overlay-content-help">
 
-      <h3 class="help-title">
-        ${t("hints")}
-      </h3>
-
       <div class="hint-container">
         <div class="hint locked" data-hint="0"></div>
         <div class="hint locked" data-hint="1"></div>

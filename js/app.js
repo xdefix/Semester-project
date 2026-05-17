@@ -15,9 +15,9 @@ import { renderStory3 } from "./story3.js";
 import { renderFinal } from "./final.js";
 import { renderRules } from "./rules.js";
 import { showPopup, hidePopup, initPopup } from "./popup.js";
-
 import { renderSettingsOverlay, initSettingsEvents } from "./settings.js";
 import { initI18n, onLanguageChanged } from "./i18n.js";
+import { clearAllHelpStates } from "./helpState.js";
 
 const app = document.getElementById("app");
 
@@ -162,6 +162,34 @@ export function navigate(page) {
 export function goBack() {
     hidePopup();
 
+    const puzzleFlowPages = new Set([
+        "puzzle1",
+        "story1",
+        "puzzle2extra",
+        "puzzle2",
+        "puzzle3",
+        "puzzle4",
+        "story2",
+        "puzzle5",
+        "story3",
+        "puzzle6",
+        "puzzle7",
+        "final"
+    ]);
+
+    const previousPage =
+        historyStack[historyStack.length - 1];
+
+    const leavingPuzzleFlow =
+        puzzleFlowPages.has(currentPage) &&
+        !puzzleFlowPages.has(previousPage);
+
+    // Leaving puzzle chain → full reset
+    if (leavingPuzzleFlow) {
+        resetTimer();
+        clearAllHelpStates();
+    }
+
     if (historyStack.length === 0) {
         currentPage = "landing";
         render();
@@ -170,6 +198,22 @@ export function goBack() {
 
     currentPage = historyStack.pop();
     render();
+}
+
+export function resetTimer() {
+    // stop active interval
+    if (timerState.interval) {
+        clearInterval(timerState.interval);
+        timerState.interval = null;
+    }
+
+    // reset timer state
+    timerState.startTimestamp = null;
+    timerState.started = false;
+    timerState.paused = false;
+
+    // remove saved timer
+    sessionStorage.removeItem(TIMER_KEY);
 }
 
 // ---------------- ROUTES ----------------
@@ -205,7 +249,6 @@ export const restartAllowedPages = new Set([
     "story1",
     "story2",
     "story3",
-    "story4",
     "final"
 ]);
 
@@ -252,11 +295,11 @@ async function bootstrap() {
 }
 
 export function enableAutoUppercase(root = document) {
-  root.querySelectorAll("input").forEach(input => {
-    input.addEventListener("input", (e) => {
-      e.target.value = e.target.value.toUpperCase();
+    root.querySelectorAll("input").forEach(input => {
+        input.addEventListener("input", (e) => {
+            e.target.value = e.target.value.toUpperCase();
+        });
     });
-  });
 }
 
 // ---------------- LANGUAGE ----------------
