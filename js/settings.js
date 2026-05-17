@@ -1,5 +1,6 @@
 // settings.js
 import { loadLanguage, i18nState, t } from "./i18n.js";
+import { resetHelpState, clearAllHelpStates, getHelpState } from "./helpState.js";
 import {
   rerender,
   resetGame,
@@ -339,8 +340,12 @@ export function initSettingsEvents() {
       showConfirm(
         t("restart_confirm"),
         () => {
+          clearAllHelpStates();
+
           resetGame();
+
           overlay.classList.add("hidden");
+
           navigate("landing");
         }
       );

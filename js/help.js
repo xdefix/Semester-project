@@ -1,49 +1,81 @@
 import { timerState } from "./app.js";
-import { getHelpState } from "./helpState.js";
 
-export function createHelpOverlay(app, { t, clues, reveals, puzzleId }) {
+import {
+    getHelpState,
+    saveHelpState
+} from "./helpState.js";
+
+export function createHelpOverlay(
+    app,
+    {
+        t,
+        clues,
+        reveals,
+        puzzleId
+    }
+) {
     const overlay = document.createElement("div");
+
     overlay.className = "overlay hidden";
     overlay.id = "help-overlay";
 
     const state = getHelpState(puzzleId);
 
-    const helpBtn = document.getElementById("help-btn");
+    const helpBtn =
+        document.getElementById("help-btn");
 
-    const normalHelpImg = `${window.BASE_PATH}images/help-icon.png`;
-    const cooldownHelpImg = `${window.BASE_PATH}images/help-icon-cooldown.png`;
+    const normalHelpImg =
+        `${window.BASE_PATH}images/help-icon.png`;
 
-    const normalOverlayBg = `${window.BASE_PATH}images/help-overlay.png`;
-    const cooldownOverlayBg = `${window.BASE_PATH}images/help-overlay-cooldown.png`;
+    const cooldownHelpImg =
+        `${window.BASE_PATH}images/help-icon-cooldown.png`;
+
+    const normalOverlayBg =
+        `${window.BASE_PATH}images/help-overlay.png`;
+
+    const cooldownOverlayBg =
+        `${window.BASE_PATH}images/help-overlay-cooldown.png`;
 
     let interval = null;
 
     overlay.innerHTML = `
     <div class="overlay-content-help">
 
-    <div class="hint-container">
-      <div class="hint locked" data-hint="0"></div>
-      <div class="hint locked" data-hint="1"></div>
-      <div class="hint locked" data-hint="2"></div>
-    </div>
+      <h3 class="help-title">
+        ${t("hints")}
+      </h3>
 
-      <button id="close-help" class="action-btn">${t("close")}</button>
+      <div class="hint-container">
+        <div class="hint locked" data-hint="0"></div>
+        <div class="hint locked" data-hint="1"></div>
+        <div class="hint locked" data-hint="2"></div>
+      </div>
+
+      <button
+        id="close-help"
+        class="action-btn"
+      >
+        ${t("close")}
+      </button>
+
     </div>
   `;
 
     app.appendChild(overlay);
 
-    const closeBtn = overlay.querySelector("#close-help");
-    const hintEls = overlay.querySelectorAll(".hint");
+    const closeBtn =
+        overlay.querySelector("#close-help");
 
-    // -----------------------------
-    // TEXT + LOCK STATE
-    // -----------------------------
+    const hintEls =
+        overlay.querySelectorAll(".hint");
+
+    // ---------------- LOCK STATE ----------------
     function setLocked(el, locked) {
         el.classList.toggle("locked", locked);
         el.disabled = locked;
     }
 
+    // ---------------- TEXT ----------------
     function setText(el, id) {
         if (!state.unlocked[id]) {
             el.textContent = t("locked");
@@ -58,21 +90,22 @@ export function createHelpOverlay(app, { t, clues, reveals, puzzleId }) {
         el.textContent = reveals[id];
     }
 
-    // -----------------------------
-    // COOLDOWN STATE (single source of truth)
-    // -----------------------------
+    // ---------------- COOLDOWN ----------------
     function isCooldownActive() {
         const now = Date.now();
 
-        const c1 = state.clue1Time && (now - state.clue1Time < 30000);
-        const c2 = state.clue2Time && (now - state.clue2Time < 60000);
+        const c1 =
+            state.clue1Time &&
+            now - state.clue1Time < 30000;
+
+        const c2 =
+            state.clue2Time &&
+            now - state.clue2Time < 60000;
 
         return c1 || c2;
     }
 
-    // -----------------------------
-    // ICON UPDATE
-    // -----------------------------
+    // ---------------- ICON ----------------
     function updateHelpIcon() {
         if (!helpBtn) return;
 
@@ -80,133 +113,172 @@ export function createHelpOverlay(app, { t, clues, reveals, puzzleId }) {
             ? cooldownHelpImg
             : normalHelpImg;
 
-        if (helpBtn.dataset.state === target) return;
+        if (helpBtn.dataset.state === target) {
+            return;
+        }
 
         helpBtn.dataset.state = target;
         helpBtn.src = target;
     }
 
-    // -----------------------------
-    // OVERLAY BACKGROUND UPDATE (NEW)
-    // -----------------------------
+    // ---------------- BACKGROUND ----------------
     function updateOverlayBackground() {
-        const content = overlay.querySelector(".overlay-content-help");
+        const content =
+            overlay.querySelector(
+                ".overlay-content-help"
+            );
+
         if (!content) return;
 
         const bg = isCooldownActive()
             ? cooldownOverlayBg
             : normalOverlayBg;
 
-        if (content.dataset.bg === bg) return;
+        if (content.dataset.bg === bg) {
+            return;
+        }
 
         content.dataset.bg = bg;
-        content.style.backgroundImage = `url(${bg})`;
-        content.style.backgroundSize = "cover";
-        content.style.backgroundPosition = "center";
+
+        content.style.backgroundImage =
+            `url(${bg})`;
+
+        content.style.backgroundSize =
+            "cover";
+
+        content.style.backgroundPosition =
+            "center";
     }
 
-    // -----------------------------
-    // HINT UI
-    // -----------------------------
+    // ---------------- HINTS ----------------
     function refreshHints() {
         hintEls.forEach(el => {
-            const id = Number(el.dataset.hint);
-            setLocked(el, !state.unlocked[id]);
+            const id =
+                Number(el.dataset.hint);
+
+            setLocked(
+                el,
+                !state.unlocked[id]
+            );
+
             setText(el, id);
         });
     }
 
+    // ---------------- REFRESH ----------------
     function refreshAll() {
         refreshHints();
         updateHelpIcon();
         updateOverlayBackground();
     }
 
-    // -----------------------------
-    // UNLOCK LOGIC
-    // -----------------------------
+    // ---------------- UNLOCKS ----------------
     function checkUnlocks() {
         const now = Date.now();
+
         let changed = false;
 
-        const clue1JustUnlocked =
+        const clue1Unlocked =
             state.clue1Time &&
             !state.unlocked[1] &&
             now - state.clue1Time >= 30000;
 
-        const clue2JustUnlocked =
+        const clue2Unlocked =
             state.clue2Time &&
             !state.unlocked[2] &&
             now - state.clue2Time >= 60000;
 
-        if (clue1JustUnlocked) {
+        if (clue1Unlocked) {
             state.unlocked[1] = true;
             changed = true;
         }
 
-        if (clue2JustUnlocked) {
+        if (clue2Unlocked) {
             state.unlocked[2] = true;
             changed = true;
         }
 
-        // ALWAYS sync visuals
-        updateHelpIcon();
-        updateOverlayBackground();
-
         if (changed) {
+            saveHelpState();
             refreshHints();
         }
+
+        updateHelpIcon();
+        updateOverlayBackground();
     }
 
-    // -----------------------------
-    // CLICK LOGIC
-    // -----------------------------
+    // ---------------- CLICK ----------------
     hintEls.forEach(el => {
         el.addEventListener("click", () => {
             if (timerState.paused) return;
 
-            const id = Number(el.dataset.hint);
+            const id =
+                Number(el.dataset.hint);
 
-            if (id === 0 && state.unlocked[0]) {
+            // clue 1
+            if (
+                id === 0 &&
+                state.unlocked[0]
+            ) {
                 state.revealed[0] = true;
-                if (!state.clue1Time) state.clue1Time = Date.now();
+
+                if (!state.clue1Time) {
+                    state.clue1Time =
+                        Date.now();
+                }
+
+                saveHelpState();
             }
 
+            // clue 2
             if (id === 1) {
                 checkUnlocks();
-                if (!state.unlocked[1]) return;
+
+                if (!state.unlocked[1]) {
+                    return;
+                }
 
                 state.revealed[1] = true;
-                if (!state.clue2Time) state.clue2Time = Date.now();
+
+                if (!state.clue2Time) {
+                    state.clue2Time =
+                        Date.now();
+                }
+
+                saveHelpState();
             }
 
+            // clue 3
             if (id === 2) {
                 checkUnlocks();
-                if (!state.unlocked[2]) return;
+
+                if (!state.unlocked[2]) {
+                    return;
+                }
 
                 state.revealed[2] = true;
+
+                saveHelpState();
             }
 
             refreshAll();
         });
     });
 
-    // -----------------------------
-    // OPEN / CLOSE
-    // -----------------------------
+    // ---------------- OPEN ----------------
     function open() {
         overlay.classList.remove("hidden");
+
         refreshAll();
 
         if (!interval) {
             interval = setInterval(() => {
                 checkUnlocks();
-                updateHelpIcon();
-                updateOverlayBackground();
             }, 1000);
         }
     }
 
+    // ---------------- CLOSE ----------------
     function close() {
         overlay.classList.add("hidden");
 
@@ -218,37 +290,51 @@ export function createHelpOverlay(app, { t, clues, reveals, puzzleId }) {
 
     closeBtn.onclick = close;
 
-    overlay.addEventListener("click", (e) => {
-        if (e.target === overlay) close();
-    });
+    overlay.addEventListener(
+        "click",
+        e => {
+            if (e.target === overlay) {
+                close();
+            }
+        }
+    );
 
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") close();
-    });
+    document.addEventListener(
+        "keydown",
+        e => {
+            if (e.key === "Escape") {
+                close();
+            }
+        }
+    );
 
-    // -----------------------------
-    // LANGUAGE SAFE UPDATE
-    // -----------------------------
+    // ---------------- LANGUAGE ----------------
     function onLanguageChange(newT) {
-        overlay.querySelector("h3").textContent = newT("hints");
-        closeBtn.textContent = newT("close");
+        const title =
+            overlay.querySelector(
+                ".help-title"
+            );
 
-        hintEls.forEach(el => {
-            const id = Number(el.dataset.hint);
-            setText(el, id);
-        });
+        if (title) {
+            title.textContent =
+                newT("hints");
+        }
 
-        // DO NOT touch visuals here (icon/background handled by timer)
+        closeBtn.textContent =
+            newT("close");
+
+        refreshHints();
     }
 
-    // -----------------------------
-    // PUBLIC API
-    // -----------------------------
+    // ---------------- PUBLIC ----------------
     function update() {
         checkUnlocks();
-        updateHelpIcon();
-        updateOverlayBackground();
+        // refreshAll();
     }
+
+    checkUnlocks();
+    refreshAll();
+
 
     return {
         open,

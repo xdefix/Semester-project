@@ -11,12 +11,12 @@ import {
 import { t } from "./i18n.js";
 
 import { createHelpOverlay } from "./help.js";
-import { resetHelpState } from "./helpState.js";
+import { resetHelpState, clearAllHelpStates, getHelpState } from "./helpState.js";
 import { createInfoOverlay } from "./info.js";
 import { showPopup } from "./popup.js";
 
 export function renderPuzzle1(app) {
-  resetHelpState("puzzle1");
+  getHelpState("puzzle1");
   app.innerHTML = `
   <section class="page office-page">
      <button id="back-btn" class="top-back-btn">${t("back")}</button>

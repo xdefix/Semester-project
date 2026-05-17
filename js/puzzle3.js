@@ -12,12 +12,12 @@ import {
 import { t } from "./i18n.js";
 
 import { createHelpOverlay } from "./help.js";
-import { resetHelpState } from "./helpState.js";
+import { resetHelpState, clearAllHelpStates, getHelpState } from "./helpState.js";
 import { createInfoOverlay } from "./info.js";
 import { showPopup } from "./popup.js";
 
 export function renderPuzzle3(app) {
-  resetHelpState("puzzle3");
+  getHelpState("puzzle3");
 
   app.innerHTML = `
   <section class="page safe-house-out-page">

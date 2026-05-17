@@ -11,11 +11,11 @@ import {
 import { t } from "./i18n.js";
 
 import { createHelpOverlay } from "./help.js";
-import { resetHelpState } from "./helpState.js";
+import { resetHelpState, clearAllHelpStates, getHelpState } from "./helpState.js";
 import { createInfoOverlay } from "./info.js";
 
 export function renderPuzzle2(app) {
-  resetHelpState("puzzle2");
+  getHelpState("puzzle2");
 
   app.innerHTML = `
   <section class="page street-page">
