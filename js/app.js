@@ -18,6 +18,7 @@ import { showPopup, hidePopup, initPopup } from "./popup.js";
 import { renderSettingsOverlay, initSettingsEvents } from "./settings.js";
 import { initI18n, onLanguageChanged } from "./i18n.js";
 import { clearAllHelpStates } from "./helpState.js";
+import { resetTypewriterVisits } from "./typewriter.js";
 
 const app = document.getElementById("app");
 
@@ -188,6 +189,7 @@ export function goBack() {
     if (leavingPuzzleFlow) {
         resetTimer();
         clearAllHelpStates();
+        resetTypewriterVisits();
     }
 
     if (historyStack.length === 0) {

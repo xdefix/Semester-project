@@ -15,6 +15,7 @@ import { createHelpOverlay } from "./help.js";
 import { resetHelpState, clearAllHelpStates, getHelpState } from "./helpState.js";
 import { createInfoOverlay } from "./info.js";
 import { showPopup } from "./popup.js";
+import { typewriteParagraphs } from "./typewriter.js";
 
 export function renderPuzzle7(app) {
   getHelpState("puzzle7");
@@ -42,7 +43,7 @@ export function renderPuzzle7(app) {
          </span>
        </div>
       </div>
-      <p>${t("puzzle7_story")}</p>
+      <p class="story-text">${t("puzzle7_story")}</p>
       <img src="${window.BASE_PATH}images/letter-info.png" alt="Mauthausen" class="story-img"/>
       <div class="answer-input-wrapper">
        <span class="report-label">${t("final_loc")}:</span>
@@ -108,7 +109,7 @@ export function renderPuzzle7(app) {
       }
     });
 
-    
+
     // disable help/info while paused
     [helpBtn, infoBtn].forEach(el => {
       if (el) {
@@ -123,6 +124,15 @@ export function renderPuzzle7(app) {
 
   startTimer(updateUI);
   updateUI();
+
+  const storyBox =
+    app.querySelector(".content-box1");
+
+  typewriteParagraphs(storyBox, {
+    pageId: "puzzle7",
+    pauseCheck: () => timerState.paused,
+    sound: true
+  });
 
   pauseBtn.onclick = () => togglePause(updateUI);
 

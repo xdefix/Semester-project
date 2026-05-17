@@ -7,6 +7,7 @@ import {
   getRemainingTime,
   navigate
 } from "./app.js";
+import { typewriteParagraphs } from "./typewriter.js";
 
 import { t } from "./i18n.js";
 
@@ -21,14 +22,14 @@ export function renderStory1(app) {
       </div>
 
       <div class="content-box1">
-        <p>${t("story1_text")}</p>
-        <p>${t("story1_text2")}</p>
-        <p>${t("story1_text3")}</p>
-        <p>${t("story1_text4")}</p>
-        <p>${t("story1_text5")}</p>
-        <p>${t("story1_text6")}</p>
-        <p>${t("story1_text7")}</p>
-        <p>${t("story1_text8")}</p>
+        <p class="story-text">${t("story1_text")}</p>
+        <p class="story-text">${t("story1_text2")}</p>
+        <p class="story-text">${t("story1_text3")}</p>
+        <p class="story-text">${t("story1_text4")}</p>
+        <p class="story-text">${t("story1_text5")}</p>
+        <p class="story-text">${t("story1_text6")}</p>
+        <p class="story-text">${t("story1_text7")}</p>
+        <p class="story-text">${t("story1_text8")}</p>
       </div>
 
       <div class="buttons">
@@ -55,6 +56,15 @@ export function renderStory1(app) {
 
   startTimer(updateUI);
   updateUI();
+
+  const storyBox =
+    app.querySelector(".content-box1");
+
+  typewriteParagraphs(storyBox, {
+    pageId: "story1",
+    pauseCheck: () => timerState.paused,
+    sound: true
+  });
 
   pauseBtn.onclick = () => togglePause(updateUI);
 

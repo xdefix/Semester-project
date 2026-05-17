@@ -14,6 +14,7 @@ import { createHelpOverlay } from "./help.js";
 import { resetHelpState, clearAllHelpStates, getHelpState } from "./helpState.js";
 import { createInfoOverlay } from "./info.js";
 import { showPopup } from "./popup.js";
+import { typewriteParagraphs } from "./typewriter.js";
 
 export function renderPuzzle1(app) {
   getHelpState("puzzle1");
@@ -42,13 +43,13 @@ export function renderPuzzle1(app) {
          </span>
        </div>
       </div>
-      <p>${t("puzzle1_story")}</p>
-      <p>${t("puzzle1_story2")}</p>
-      <p>${t("puzzle1_story3")}</p>
-      <p>${t("puzzle1_story4")}</p>
-      <p>${t("puzzle1_story5")}</p>
-      <p>${t("puzzle1_story6")}</p>
-      <p>${t("puzzle1_story7")}</p>
+      <p class="story-text">${t("puzzle1_story")}</p>
+      <p class="story-text">${t("puzzle1_story2")}</p>
+      <p class="story-text">${t("puzzle1_story3")}</p>
+      <p class="story-text">${t("puzzle1_story4")}</p>
+      <p class="story-text">${t("puzzle1_story5")}</p>
+      <p class="story-text">${t("puzzle1_story6")}</p>
+      <p class="story-text">${t("puzzle1_story7")}</p>
 
       <!-- SINGLE INPUT -->
       <div class="date-input-single">
@@ -207,6 +208,15 @@ export function renderPuzzle1(app) {
 
   startTimer(updateUI);
   updateUI();
+
+  const storyBox =
+    app.querySelector(".content-box1");
+
+  typewriteParagraphs(storyBox, {
+    pageId: "puzzle1",
+    pauseCheck: () => timerState.paused,
+    sound: true
+  });
 
   pauseBtn.onclick = () => togglePause(updateUI);
 

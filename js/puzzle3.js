@@ -15,6 +15,7 @@ import { createHelpOverlay } from "./help.js";
 import { resetHelpState, clearAllHelpStates, getHelpState } from "./helpState.js";
 import { createInfoOverlay } from "./info.js";
 import { showPopup } from "./popup.js";
+import { typewriteParagraphs } from "./typewriter.js";
 
 export function renderPuzzle3(app) {
   getHelpState("puzzle3");
@@ -44,17 +45,17 @@ export function renderPuzzle3(app) {
       </div>
     </div>
 
-      <p>${t("puzzle3_story")}</p>
-      <p>${t("puzzle3_story1")}</p>
-      <p>${t("puzzle3_story2")}</p>
-      <p>${t("puzzle3_story3")}</p>
-      <p>${t("puzzle3_story4")}</p>
-      <p>${t("puzzle3_story5")}</p>
-      <p>${t("puzzle3_story6")}</p>
-      <p>${t("puzzle3_story7")}</p>
-      <p>${t("puzzle3_story8")}</p>
-      <p>${t("puzzle3_story9")}</p>
-      <p>${t("puzzle3_story10")}</p>
+      <p class="story-text">${t("puzzle3_story")}</p>
+      <p class="story-text">${t("puzzle3_story1")}</p>
+      <p class="story-text">${t("puzzle3_story2")}</p>
+      <p class="story-text">${t("puzzle3_story3")}</p>
+      <p class="story-text">${t("puzzle3_story4")}</p>
+      <p class="story-text">${t("puzzle3_story5")}</p>
+      <p class="story-text">${t("puzzle3_story6")}</p>
+      <p class="story-text">${t("puzzle3_story7")}</p>
+      <p class="story-text">${t("puzzle3_story8")}</p>
+      <p class="story-text">${t("puzzle3_story9")}</p>
+      <p class="story-text">${t("puzzle3_story10")}</p>
 
       <!-- ANSWERS -->
       <div class="answers-row2">
@@ -187,6 +188,16 @@ export function renderPuzzle3(app) {
 
   startTimer(updateUI);
   updateUI();
+
+  const storyBox =
+    app.querySelector(".content-box1");
+
+  typewriteParagraphs(storyBox, {
+    pageId: "puzzle3",
+    pauseCheck: () => timerState.paused,
+    sound: true
+  });
+
 
   pauseBtn.onclick = () => togglePause(updateUI);
 

@@ -7,6 +7,7 @@ import {
   getRemainingTime,
   navigate
 } from "./app.js";
+import { typewriteParagraphs } from "./typewriter.js";
 
 import { t } from "./i18n.js";
 
@@ -21,12 +22,12 @@ export function renderStoryPuzzle2(app) {
       </div>
 
       <div class="content-box1">
-        <p>${t("puzzle2_story")}</p>
-        <p>${t("puzzle2_story2")}</p>
-        <p>${t("puzzle2_story3")}</p>
-        <p>${t("puzzle2_story4")}</p>
-        <p>${t("puzzle2_story5")}</p>
-        <p>${t("puzzle2_story6")}</p>
+        <p class="story-text">${t("puzzle2_story")}</p>
+        <p class="story-text">${t("puzzle2_story2")}</p>
+        <p class="story-text">${t("puzzle2_story3")}</p>
+        <p class="story-text">${t("puzzle2_story4")}</p>
+        <p class="story-text">${t("puzzle2_story5")}</p>
+        <p class="story-text">${t("puzzle2_story6")}</p>
       </div>
 
       <div class="buttons">
@@ -53,6 +54,15 @@ export function renderStoryPuzzle2(app) {
 
   startTimer(updateUI);
   updateUI();
+
+    const storyBox =
+      app.querySelector(".content-box1");
+  
+    typewriteParagraphs(storyBox, {
+      pageId: "puzzle2extra",
+      pauseCheck: () => timerState.paused,
+      sound: true
+    });
 
   pauseBtn.onclick = () => togglePause(updateUI);
 

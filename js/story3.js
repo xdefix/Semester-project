@@ -7,6 +7,7 @@ import {
   getRemainingTime,
   navigate
 } from "./app.js";
+import { typewriteParagraphs } from "./typewriter.js";
 
 import { t } from "./i18n.js";
 
@@ -21,11 +22,11 @@ export function renderStory3(app) {
       </div>
 
       <div class="content-box1">
-        <p>${t("story3_text")}</p>
-        <p>${t("story3_text1")}</p>
-        <p>${t("story3_text2")}</p>
-        <p>${t("story3_text3")}</p>
-        <p>${t("story3_text4")}</p>
+        <p class="story-text">${t("story3_text")}</p>
+        <p class="story-text">${t("story3_text1")}</p>
+        <p class="story-text">${t("story3_text2")}</p>
+        <p class="story-text">${t("story3_text3")}</p>
+        <p class="story-text">${t("story3_text4")}</p>
       </div>
 
       <div class="buttons">
@@ -53,6 +54,15 @@ export function renderStory3(app) {
 
   startTimer(updateUI);
   updateUI();
+
+  const storyBox =
+    app.querySelector(".content-box1");
+
+  typewriteParagraphs(storyBox, {
+    pageId: "story3",
+    pauseCheck: () => timerState.paused,
+    sound: true
+  });
 
   pauseBtn.onclick = () => togglePause(updateUI);
 

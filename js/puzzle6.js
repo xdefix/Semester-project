@@ -15,6 +15,7 @@ import { createHelpOverlay } from "./help.js";
 import { resetHelpState, clearAllHelpStates, getHelpState } from "./helpState.js";
 import { createInfoOverlay } from "./info.js";
 import { showPopup } from "./popup.js";
+import { typewriteParagraphs } from "./typewriter.js";
 
 export function renderPuzzle6(app) {
   getHelpState("puzzle6");
@@ -46,14 +47,14 @@ export function renderPuzzle6(app) {
        </div>
       </div>
 
-      <p>${t("puzzle6_story")}</p>
-      <p>${t("puzzle6_story2")}</p>
-      <p>${t("puzzle6_story3")}</p>
-      <p>${t("puzzle6_story4")}</p>
-      <p>${t("puzzle6_story5")}</p>
-      <p>${t("puzzle6_story6")}</p>
-      <p>${t("puzzle6_story7")}</p>
-      <p>${t("puzzle6_story8")}</p>
+      <p class="story-text">${t("puzzle6_story")}</p>
+      <p class="story-text">${t("puzzle6_story2")}</p>
+      <p class="story-text">${t("puzzle6_story3")}</p>
+      <p class="story-text">${t("puzzle6_story4")}</p>
+      <p class="story-text">${t("puzzle6_story5")}</p>
+      <p class="story-text">${t("puzzle6_story6")}</p>
+      <p class="story-text">${t("puzzle6_story7")}</p>
+      <p class="story-text">${t("puzzle6_story8")}</p>
 
 <!-- INPUT GRID -->
 <div class="puzzle6-grid">
@@ -209,7 +210,7 @@ export function renderPuzzle6(app) {
       }
     });
 
-    
+
     // disable help/info while paused
     [helpBtn, infoBtn].forEach(el => {
       if (el) {
@@ -224,6 +225,15 @@ export function renderPuzzle6(app) {
 
   startTimer(updateUI);
   updateUI();
+
+  const storyBox =
+    app.querySelector(".content-box1");
+
+  typewriteParagraphs(storyBox, {
+    pageId: "puzzle6",
+    pauseCheck: () => timerState.paused,
+    sound: true
+  });
 
   pauseBtn.onclick = () => togglePause(updateUI);
 

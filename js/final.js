@@ -5,6 +5,7 @@ import {
   navigate,
   resetNavigation
 } from "./app.js";
+import { typewriteParagraphs } from "./typewriter.js";
 
 import { t, tReplace } from "./i18n.js";
 
@@ -20,16 +21,16 @@ export function renderFinal(app) {
       </div>
 
       <div class="content-box1">
-        <p>${t("final_story")}</p>
-        <p>${t("final_story1")}</p>
-        <p>${t("final_story2")}</p>
-        <p>${t("final_story3")}</p>
-        <p>${t("final_story4")}</p>
-        <p>${t("final_story5")}</p>
-        <p>${t("final_story6")}</p>
-        <p>${t("final_story7")}</p>
-        <p>${t("final_story8")}</p>
-        <p>${t("final_story9")}</p>
+        <p class="story-text">${t("final_story")}</p>
+        <p class="story-text">${t("final_story1")}</p>
+        <p class="story-text">${t("final_story2")}</p>
+        <p class="story-text">${t("final_story3")}</p>
+        <p class="story-text">${t("final_story4")}</p>
+        <p class="story-text">${t("final_story5")}</p>
+        <p class="story-text">${t("final_story6")}</p>
+        <p class="story-text">${t("final_story7")}</p>
+        <p class="story-text">${t("final_story8")}</p>
+        <p class="story-text">${t("final_story9")}</p>
       </div>
 
       <div class="buttons">
@@ -44,9 +45,20 @@ export function renderFinal(app) {
     </section>
   `;
 
+  const storyBox =
+    app.querySelector(".content-box1");
+
+  typewriteParagraphs(storyBox, {
+    pageId: "final",
+    pauseCheck: () => timerState.paused,
+    sound: true
+  });
+
   app.querySelector("#restart-btn").onclick = () => {
     resetGame();
     resetNavigation();
     navigate("landing");
+
+    sessionStorage.removeItem("visited_story_pages");
   };
 }

@@ -347,6 +347,8 @@ export function initSettingsEvents() {
           overlay.classList.add("hidden");
 
           navigate("landing");
+
+          sessionStorage.removeItem("visited_story_pages");
         }
       );
     };
