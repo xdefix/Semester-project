@@ -49,8 +49,7 @@ export function renderFinal(app) {
     app.querySelector(".content-box1");
 
   typewriteParagraphs(storyBox, {
-    pageId: "final",
-    pauseCheck: () => timerState.paused,
+    pageId: "intro",
     sound: true
   });
 
