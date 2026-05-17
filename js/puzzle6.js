@@ -202,8 +202,11 @@ export function renderPuzzle6(app) {
     }
     const paused = timerState.paused;
 
-    app.querySelectorAll("button, input").forEach(el => {
-      if (el.id !== "pause-btn") el.disabled = paused;
+    app.querySelectorAll("button").forEach(el => {
+      if (el.id !== "pause-btn") {
+        el.disabled = paused;
+        el.style.opacity = paused ? "0.5" : "1";
+      }
     });
 
     

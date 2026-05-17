@@ -167,9 +167,11 @@ export function renderPuzzle3(app) {
     const paused = timerState.paused;
 
     app.querySelectorAll("button, input").forEach(el => {
-      if (el.id !== "pause-btn") el.disabled = paused;
+      if (el.id !== "pause-btn") {
+        el.disabled = paused;
+        el.style.opacity = paused ? "0.5" : "1";
+      }
     });
-
 
     // disable help/info while paused
     [helpBtn, infoBtn].forEach(el => {
