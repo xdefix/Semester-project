@@ -12,7 +12,9 @@
 
 <body>
     <script>
-        window.BASE_PATH = "/Semester-project/";
+        window.BASE_PATH = location.hostname.includes("github.io")
+            ? "/Semester-project/"
+            : "/";
     </script>
 
     <div id="app"></div>
