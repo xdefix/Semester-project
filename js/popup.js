@@ -33,7 +33,7 @@ function renderPopup() {
             <div class="popup-box" id="popup-box">
                 <p>${text}</p>
 
-                <button class="popup-btn" id="popup-ok">
+                <button data-no-sound class="popup-btn" id="popup-ok">
                     > OK
                 </button>
             </div>

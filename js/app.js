@@ -19,6 +19,7 @@ import { renderSettingsOverlay, initSettingsEvents } from "./settings.js";
 import { initI18n, onLanguageChanged } from "./i18n.js";
 import { clearAllHelpStates } from "./helpState.js";
 import { resetTypewriterVisits } from "./typewriter.js";
+import { playMusic, playButtonClick } from "./sound.js";
 
 const app = document.getElementById("app");
 
@@ -259,6 +260,27 @@ function render() {
     const page = routes[currentPage];
     page?.(app);
 }
+
+// START MUSIC AFTER FIRST USER INTERACTION
+document.addEventListener(
+    "pointerdown",
+    () => {
+        playMusic();
+    },
+    { once: true }
+);
+
+document.addEventListener("click", (e) => {
+    const button = e.target.closest("button");
+
+    if (!button) return;
+
+    if (button.hasAttribute("data-no-sound")) {
+        return;
+    }
+
+    playButtonClick();
+});
 
 // ---------------- GLOBAL UI ----------------
 function mountGlobalUI() {

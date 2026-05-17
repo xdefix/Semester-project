@@ -1,4 +1,3 @@
-// settings.js
 import { loadLanguage, i18nState, t } from "./i18n.js";
 import { resetHelpState, clearAllHelpStates, getHelpState } from "./helpState.js";
 import {
@@ -8,6 +7,13 @@ import {
   getCurrentPage,
   restartAllowedPages
 } from "./app.js";
+
+import {
+  setMusicVolume,
+  setSfxVolume,
+  getMusicVolume,
+  getSfxVolume
+} from "./sound.js";
 
 // ---------------- LANGUAGE ----------------
 export async function setLanguage(lang) {
@@ -62,8 +68,8 @@ export function renderSettingsOverlay() {
           <p class="section-label">${t("language")}</p>
 
           <div class="language-buttons">
-            <button class="lang-btn" data-lang="en">[EN]</button>
-            <button class="lang-btn" data-lang="de">[DE]</button>
+            <button data-no-sound class="lang-btn" data-lang="en">[EN]</button>
+            <button data-no-sound class="lang-btn" data-lang="de">[DE]</button>
           </div>
         </div>
 
@@ -115,7 +121,6 @@ export function renderSettingsOverlay() {
 
 </div>
 
-<!-- RESTART -->
 <button id="restart-game-btn" class="restart-btn">
   ${t("restart_game")}
 </button>
@@ -123,7 +128,6 @@ export function renderSettingsOverlay() {
       </div>
     </div>
 
-    <!-- CONFIRM MODAL -->
     <div id="confirm-modal" class="modal hidden">
       <div class="modal-box">
         <p id="confirm-text"></p>
@@ -180,7 +184,8 @@ function createTicks(container, activeCount = 0) {
     tick.className =
       i < activeCount ? "tick active-tick" : "tick";
 
-    tick.style.transform = `rotate(${-135 + i * 10}deg)`;
+    tick.style.transform =
+      `rotate(${-135 + i * 10}deg)`;
 
     container.appendChild(tick);
   }
@@ -211,33 +216,48 @@ function setupDial(dialEl, ticksEl, onChange) {
     const angle =
       MIN_ANGLE + value * RANGE + IMAGE_OFFSET;
 
-    dialEl.style.transform = `rotate(${angle}deg)`;
+    dialEl.style.transform =
+      `rotate(${angle}deg)`;
+
     dialEl.dataset.value = value;
 
-    const activeTicks = Math.round(value * 27);
+    const activeTicks =
+      Math.round(value * 27);
+
     createTicks(ticksEl, activeTicks);
 
     if (onChange) onChange(value);
   }
 
   function updateFromPointer(clientX, clientY) {
-    const rect = dialEl.getBoundingClientRect();
+    const rect =
+      dialEl.getBoundingClientRect();
 
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
+    const centerX =
+      rect.left + rect.width / 2;
+
+    const centerY =
+      rect.top + rect.height / 2;
 
     const dx = clientX - centerX;
     const dy = clientY - centerY;
 
-    let angle = Math.atan2(dy, dx) * (180 / Math.PI);
+    let angle =
+      Math.atan2(dy, dx) *
+      (180 / Math.PI);
 
     angle += 90;
 
     if (angle > 180) angle -= 360;
 
-    angle = clamp(angle, MIN_ANGLE, MAX_ANGLE);
+    angle = clamp(
+      angle,
+      MIN_ANGLE,
+      MAX_ANGLE
+    );
 
-    const value = (angle - MIN_ANGLE) / RANGE;
+    const value =
+      (angle - MIN_ANGLE) / RANGE;
 
     render(value);
   }
@@ -245,7 +265,10 @@ function setupDial(dialEl, ticksEl, onChange) {
   function onPointerMove(e) {
     if (!dragging) return;
 
-    updateFromPointer(e.clientX, e.clientY);
+    updateFromPointer(
+      e.clientX,
+      e.clientY
+    );
   }
 
   function stopDrag() {
@@ -253,37 +276,83 @@ function setupDial(dialEl, ticksEl, onChange) {
     dialEl.style.cursor = "grab";
   }
 
-  dialEl.addEventListener("pointerdown", (e) => {
-    dragging = true;
+  dialEl.addEventListener(
+    "pointerdown",
+    (e) => {
+      dragging = true;
 
-    dialEl.style.cursor = "grabbing";
+      dialEl.style.cursor =
+        "grabbing";
 
-    dialEl.setPointerCapture(e.pointerId);
+      dialEl.setPointerCapture(
+        e.pointerId
+      );
 
-    updateFromPointer(e.clientX, e.clientY);
+      updateFromPointer(
+        e.clientX,
+        e.clientY
+      );
 
-    e.preventDefault();
-  });
+      e.preventDefault();
+    }
+  );
 
-  document.addEventListener("pointermove", onPointerMove);
-  document.addEventListener("pointerup", stopDrag);
+  document.addEventListener(
+    "pointermove",
+    onPointerMove
+  );
 
-  // initial state
-  render(1);
+  document.addEventListener(
+    "pointerup",
+    stopDrag
+  );
+
+  return {
+    render
+  };
 }
 
 // ---------------- EVENTS ----------------
 export function initSettingsEvents() {
-  const overlay = document.getElementById("settings-overlay");
-  const btn = document.getElementById("settings-btn");
-  const closeBtn = document.getElementById("close-settings");
-  const restartBtn = document.getElementById("restart-game-btn");
+  const overlay =
+    document.getElementById(
+      "settings-overlay"
+    );
 
-  const musicDial = document.getElementById("music-dial");
-  const sfxDial = document.getElementById("sfx-dial");
+  const btn =
+    document.getElementById(
+      "settings-btn"
+    );
 
-  const musicTicks = document.getElementById("music-ticks");
-  const sfxTicks = document.getElementById("sfx-ticks");
+  const closeBtn =
+    document.getElementById(
+      "close-settings"
+    );
+
+  const restartBtn =
+    document.getElementById(
+      "restart-game-btn"
+    );
+
+  const musicDial =
+    document.getElementById(
+      "music-dial"
+    );
+
+  const sfxDial =
+    document.getElementById(
+      "sfx-dial"
+    );
+
+  const musicTicks =
+    document.getElementById(
+      "music-ticks"
+    );
+
+  const sfxTicks =
+    document.getElementById(
+      "sfx-ticks"
+    );
 
   if (!overlay || !btn || !closeBtn) return;
 
@@ -304,20 +373,27 @@ export function initSettingsEvents() {
     if (e.target === overlay) close();
   });
 
-  document.addEventListener("keydown", e => {
-    if (
-      e.key === "Escape" &&
-      !overlay.classList.contains("hidden")
-    ) {
-      close();
+  document.addEventListener(
+    "keydown",
+    e => {
+      if (
+        e.key === "Escape" &&
+        !overlay.classList.contains("hidden")
+      ) {
+        close();
+      }
     }
-  });
+  );
 
   // LANGUAGE
-  const langButtons = document.querySelectorAll(".lang-btn");
+  const langButtons =
+    document.querySelectorAll(".lang-btn");
 
   langButtons.forEach(btn => {
-    if (btn.dataset.lang === i18nState.language) {
+    if (
+      btn.dataset.lang ===
+      i18nState.language
+    ) {
       btn.classList.add("active");
     }
 
@@ -348,23 +424,38 @@ export function initSettingsEvents() {
 
           navigate("landing");
 
-          sessionStorage.removeItem("visited_story_pages");
+          sessionStorage.removeItem(
+            "visited_story_pages"
+          );
         }
       );
     };
   }
 
   // MUSIC KNOB
-  setupDial(musicDial, musicTicks, (value) => {
-    // setMusicVolume(value);
-
-    console.log("Music:", value);
-  });
+  const musicControl = setupDial(
+    musicDial,
+    musicTicks,
+    (value) => {
+      setMusicVolume(value);
+    }
+  );
 
   // SFX KNOB
-  setupDial(sfxDial, sfxTicks, (value) => {
-    // setSfxVolume(value);
+  const sfxControl = setupDial(
+    sfxDial,
+    sfxTicks,
+    (value) => {
+      setSfxVolume(value);
+    }
+  );
 
-    console.log("SFX:", value);
-  });
+  // INITIAL VALUES
+  musicControl.render(
+    getMusicVolume()
+  );
+
+  sfxControl.render(
+    getSfxVolume()
+  );
 }
