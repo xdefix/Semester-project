@@ -23,10 +23,15 @@ onLanguageChanged(() => {
 function renderPopup() {
     if (!popupRoot || !currentPopup) return;
 
+    const text =
+        currentPopup.messageKey === "time_up"
+            ? t("time_up")
+            : t("wrong");
+
     popupRoot.innerHTML = `
         <div class="modal1" id="popup-overlay">
             <div class="popup-box" id="popup-box">
-                <p>${t("wrong")}</p>
+                <p>${text}</p>
 
                 <button class="popup-btn" id="popup-ok">
                     > OK
@@ -40,7 +45,6 @@ function renderPopup() {
         currentPopup?.onClose?.();
     };
 }
-
 export function showPopup(messageKey, onClose) {
     if (!popupRoot) initPopup();
 

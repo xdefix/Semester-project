@@ -81,7 +81,7 @@ export function startTimer(updateUI) {
         if (getRemainingTime() <= 0) {
             clearInterval(timerState.interval);
             timerState.interval = null;
-            showPopup("Time's up!");
+            showPopup("time_up");
         }
     }, 1000);
 }
