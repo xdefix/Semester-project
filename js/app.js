@@ -259,6 +259,7 @@ export const restartAllowedPages = new Set([
 function render() {
     const page = routes[currentPage];
     page?.(app);
+    // initializePageCursor(app);
 }
 
 // START MUSIC AFTER FIRST USER INTERACTION
@@ -325,6 +326,171 @@ export function enableAutoUppercase(root = document) {
         });
     });
 }
+
+
+
+// /* =========================
+//    CUSTOM CURSOR SYSTEM
+//    app.js
+//    ========================= */
+
+// /* ===== CURSOR IMAGES ===== */
+
+// /* Cursor image paths */
+// const CURSOR_DEFAULT =
+//     `${BASE_PATH}images/cursor/default.png`;
+
+// const CURSOR_HOVER =
+//     `${BASE_PATH}images/cursor/hover.png`;
+
+// const CURSOR_HOLD =
+//     `${BASE_PATH}images/cursor/hold.png`;
+
+// /* ===== CURSOR ELEMENT ===== */
+
+// const cursor = document.getElementById("game-cursor");
+
+// /* ===== STATE ===== */
+
+// let mouseX = 0;
+// let mouseY = 0;
+
+// let currentX = 0;
+// let currentY = 0;
+
+// let isHolding = false;
+// let hoverActive = false;
+
+// /* ===== INITIAL CURSOR ===== */
+
+// cursor.style.backgroundImage = `url(${CURSOR_DEFAULT})`;
+
+// /* =========================
+//    MOUSE TRACKING
+//    ========================= */
+
+// window.addEventListener("mousemove", (e) => {
+//     mouseX = e.clientX;
+//     mouseY = e.clientY;
+// });
+
+// /* =========================
+//    SMOOTH CURSOR LOOP
+//    ========================= */
+
+// function animateCursor() {
+//     currentX += (mouseX - currentX) * 0.55;
+//     currentY += (mouseY - currentY) * 0.55;
+
+//     cursor.style.transform =
+//         `translate(${currentX}px, ${currentY}px) translate(-50%, -50%)`;
+
+//     requestAnimationFrame(animateCursor);
+// }
+
+// animateCursor();
+
+// /* =========================
+//    CURSOR STATE HANDLING
+//    ========================= */
+
+// function updateCursorState() {
+//     if (isHolding) {
+//         cursor.style.backgroundImage = `url(${CURSOR_HOLD})`;
+//         return;
+//     }
+
+//     if (hoverActive) {
+//         cursor.style.backgroundImage = `url(${CURSOR_HOVER})`;
+//         return;
+//     }
+
+//     cursor.style.backgroundImage = `url(${CURSOR_DEFAULT})`;
+// }
+
+
+// function bindCursorInteractions(root = document) {
+//     const interactables =
+//         root.querySelectorAll(".cursor-hover");
+
+//     interactables.forEach((el) => {
+
+//         /* Avoid duplicate listeners */
+//         if (el.dataset.cursorBound) return;
+
+//         el.dataset.cursorBound = "true";
+
+//         /* Hover */
+//         el.addEventListener("mouseenter", () => {
+//             console.log("hover working");
+//             hoverActive = true;
+//             updateCursorState();
+//         });
+
+//         el.addEventListener("mouseleave", () => {
+//             hoverActive = false;
+//             updateCursorState();
+//         });
+
+//         /* Hold */
+//         el.addEventListener("mousedown", () => {
+//             isHolding = true;
+//             updateCursorState();
+//         });
+
+//         el.addEventListener("mouseup", () => {
+//             isHolding = false;
+//             updateCursorState();
+//         });
+
+//         /* Safety */
+//         el.addEventListener("mouseleave", () => {
+//             isHolding = false;
+//             updateCursorState();
+//         });
+//     });
+// }
+
+// /* =========================
+//    INPUT FIELDS
+//    ========================= */
+
+// function bindInputCursorBehavior(root = document) {
+//     const textInputs =
+//         root.querySelectorAll(
+//             "input, textarea, [contenteditable='true']"
+//         );
+
+//     textInputs.forEach((el) => {
+
+//         if (el.dataset.cursorInputBound) return;
+
+//         el.dataset.cursorInputBound = "true";
+
+//         el.addEventListener("mouseenter", () => {
+//             cursor.style.opacity = "0";
+//             document.body.style.cursor = "text";
+//         });
+
+//         el.addEventListener("mouseleave", () => {
+//             cursor.style.opacity = "1";
+//             document.body.style.cursor = "none";
+//         });
+//     });
+// }
+
+// export function initializePageCursor(root = document) {
+//     bindCursorInteractions(root);
+//     bindInputCursorBehavior(root);
+// }
+
+// window.initializePageCursor = initializePageCursor;
+
+// /* =========================
+//    INITIAL LOAD
+//    ========================= */
+
+// initializePageCursor();
 
 // ---------------- LANGUAGE ----------------
 onLanguageChanged(() => rerender());

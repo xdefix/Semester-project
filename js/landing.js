@@ -2,7 +2,7 @@ import { navigate } from "./app.js";
 import { t } from "./i18n.js";
 
 export function renderLanding(app) {
-app.innerHTML = `
+  app.innerHTML = `
   <section class="page landing-page">
     <div class="content-box-landing">
       <h1>${t("title")}</h1>

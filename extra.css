@@ -1,0 +1,54 @@
+
+/* =========================
+   CUSTOM CURSOR SYSTEM
+   ========================= */
+
+/* Hide default cursor everywhere */
+html,
+body,
+* {
+  cursor: none !important;
+}
+
+/* Allow text cursor in inputs */
+input,
+textarea,
+[contenteditable="true"] {
+  cursor: text !important;
+}
+
+/* Main cursor */
+#game-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 32px;
+  height: 32px;
+
+  pointer-events: none;
+  z-index: 999999;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  transform: translate(-50%, -50%);
+  will-change: transform;
+
+  transition:
+    width 0.08s linear,
+    height 0.08s linear,
+    opacity 0.12s linear;
+
+  opacity: 1;
+}
+
+/* Optional smoother feeling */
+#game-cursor.smooth {
+  transition:
+    transform 0.03s linear,
+    width 0.08s linear,
+    height 0.08s linear,
+    opacity 0.12s linear;
+}
