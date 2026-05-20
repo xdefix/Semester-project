@@ -40,7 +40,7 @@ export function renderPuzzle3(app) {
     <div class="pages-needed-wrapper">
       <div class="pages-needed-counter">
         <span class="pages-needed-text">
-          ${t("page_needed")} 8
+          ${t("page_needed")} 3.1
         </span>
       </div>
     </div>

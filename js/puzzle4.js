@@ -43,7 +43,7 @@ export function renderPuzzle4(app) {
       <div class="pages-needed-wrapper">
        <div class="pages-needed-counter">
          <span class="pages-needed-text">
-          ${t("page_needed")} 9
+          ${t("page_needed")} 4.1
          </span>
        </div>
       </div>
