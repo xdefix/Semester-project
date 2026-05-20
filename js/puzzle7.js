@@ -147,7 +147,7 @@ export function renderPuzzle7(app) {
     const answer = app.querySelector("#answer-input").value.trim();
 
     if (answer === "MAUTHAUSEN") {
-      navigate("final");
+      navigate("story4");
     } else {
       showPopup(t("wrong"));
     }

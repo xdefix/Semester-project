@@ -552,7 +552,7 @@ export function renderPuzzle2(app) {
   // --------------------------------------------------
 
   app.querySelector("#continue-btn").onclick = () => {
-    navigate("puzzle3");
+    navigate("puzzle3extra");
   };
 
   // --------------------------------------------------

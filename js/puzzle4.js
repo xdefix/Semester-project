@@ -49,6 +49,9 @@ export function renderPuzzle4(app) {
       </div>
       <p class="story-text">${t("puzzle4_story")}</p>
       <p class="story-text">${t("puzzle4_story1")}</p>
+      <p class="story-text">${t("puzzle4_story2")}</p>
+      <p class="story-text">${t("puzzle4_story3")}</p>
+      <p class="story-text">${t("puzzle4_story4")}</p>
       <div class="answer-input-wrapper">
        <span class="report-label">${t("lock")}:</span>
 

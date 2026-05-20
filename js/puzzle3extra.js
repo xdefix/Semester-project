@@ -23,9 +23,8 @@ export function renderStoryPuzzle3(app) {
 
       <div class="content-box1">
         <p class="story-text">${t("puzzle3_story")}</p>
-        <p class="story-text">${t("puzzle3_story")}</p>
-        <p class="story-text">${t("puzzle3_story")}</p>
-        <p class="story-text">${t("puzzle3_story")}</p>
+        <p class="story-text">${t("puzzle3_story1")}</p>
+        <p class="story-text">${t("puzzle3_story2")}</p>
       </div>
 
       <div class="buttons">

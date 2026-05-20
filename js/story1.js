@@ -28,8 +28,6 @@ export function renderStory1(app) {
         <p class="story-text">${t("story1_text4")}</p>
         <p class="story-text">${t("story1_text5")}</p>
         <p class="story-text">${t("story1_text6")}</p>
-        <p class="story-text">${t("story1_text7")}</p>
-        <p class="story-text">${t("story1_text8")}</p>
       </div>
 
       <div class="buttons">

@@ -44,10 +44,6 @@ export function renderPuzzle3(app) {
         </span>
       </div>
     </div>
-
-      <p class="story-text">${t("puzzle3_story")}</p>
-      <p class="story-text">${t("puzzle3_story1")}</p>
-      <p class="story-text">${t("puzzle3_story2")}</p>
       <p class="story-text">${t("puzzle3_story3")}</p>
       <p class="story-text">${t("puzzle3_story4")}</p>
       <p class="story-text">${t("puzzle3_story5")}</p>

@@ -56,6 +56,7 @@ export function renderPuzzle5(app) {
         <div class="report-entry-box">
 
           <span class="report-label">${t("missing")}:</span>
+          </br>
 
           <div class="answer-row">
 
@@ -89,7 +90,7 @@ export function renderPuzzle5(app) {
 
           </div>
         </div>
-
+       </br>
         <!-- NEW ENTRY -->
         <div class="report-entry-box">
 

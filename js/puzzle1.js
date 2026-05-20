@@ -49,7 +49,6 @@ export function renderPuzzle1(app) {
       <p class="story-text">${t("puzzle1_story4")}</p>
       <p class="story-text">${t("puzzle1_story5")}</p>
       <p class="story-text">${t("puzzle1_story6")}</p>
-      <p class="story-text">${t("puzzle1_story7")}</p>
 
       <!-- SINGLE INPUT -->
       <div class="date-input-single">

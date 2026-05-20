@@ -11,7 +11,7 @@ import { typewriteParagraphs } from "./typewriter.js";
 
 import { t } from "./i18n.js";
 
-export function renderStory2(app) {
+export function renderStory4(app) {
   app.innerHTML = `
     <section class="page safe-house-in-page">
      <button id="back-btn" class="top-back-btn">${t("back")}</button>
@@ -22,9 +22,13 @@ export function renderStory2(app) {
       </div>
 
       <div class="content-box1">
-        <p class="story-text">${t("story2_text")}</p>
-        <p class="story-text">${t("story2_text1")}</p>
-        <p class="story-text">${t("story2_text2")}</p>
+        <p class="story-text">${t("story4_text")}</p>
+        <p class="story-text">${t("story4_text1")}</p>
+        <p class="story-text">${t("story4_text2")}</p>
+        <p class="story-text">${t("story4_text3")}</p>
+        <p class="story-text">${t("story4_text4")}</p>
+        <p class="story-text">${t("story4_text5")}</p>
+        <p class="story-text">${t("story4_text6")}</p>
       </div>
 
       <div class="buttons">
@@ -39,6 +43,7 @@ export function renderStory2(app) {
   function updateUI() {
     app.querySelector("#timer").textContent =
       formatTime(getRemainingTime());
+
 
     pauseBtn.innerHTML = timerState.paused
       ? `<img src="${BASE_PATH}images/play-btn.png" alt="Play" class="btn-icon">`
@@ -56,7 +61,7 @@ export function renderStory2(app) {
     app.querySelector(".content-box1");
 
   typewriteParagraphs(storyBox, {
-    pageId: "story2",
+    pageId: "story4",
     pauseCheck: () => timerState.paused,
     sound: true
   });
@@ -64,7 +69,7 @@ export function renderStory2(app) {
   pauseBtn.onclick = () => togglePause(updateUI);
 
   app.querySelector("#continue-btn").onclick = () => {
-    navigate("puzzle5");
+    navigate("final");
   };
   app.querySelector("#back-btn").onclick = () => {
     goBack();

@@ -5,6 +5,7 @@ import { renderPuzzle1 } from "./puzzle1.js";
 import { renderPuzzle2 } from "./puzzle2.js";
 import { renderStoryPuzzle2 } from "./puzzle2extra.js";
 import { renderPuzzle3 } from "./puzzle3.js";
+import { renderStoryPuzzle3 } from "./puzzle3extra.js";
 import { renderPuzzle4 } from "./puzzle4.js";
 import { renderPuzzle5 } from "./puzzle5.js";
 import { renderPuzzle6 } from "./puzzle6.js";
@@ -12,6 +13,7 @@ import { renderPuzzle7 } from "./puzzle7.js";
 import { renderStory1 } from "./story1.js";
 import { renderStory2 } from "./story2.js";
 import { renderStory3 } from "./story3.js";
+import { renderStory4 } from "./story4.js";
 import { renderFinal } from "./final.js";
 import { renderRules } from "./rules.js";
 import { showPopup, hidePopup, initPopup } from "./popup.js";
@@ -169,6 +171,7 @@ export function goBack() {
         "story1",
         "puzzle2extra",
         "puzzle2",
+        "puzzle3extra",
         "puzzle3",
         "puzzle4",
         "story2",
@@ -176,6 +179,7 @@ export function goBack() {
         "story3",
         "puzzle6",
         "puzzle7",
+        "story4",
         "final"
     ]);
 
@@ -228,6 +232,7 @@ const routes = {
     puzzle2: renderPuzzle2,
     puzzle2extra: renderStoryPuzzle2,
     puzzle3: renderPuzzle3,
+    puzzle3extra: renderStoryPuzzle3,
     puzzle4: renderPuzzle4,
     puzzle5: renderPuzzle5,
     puzzle6: renderPuzzle6,
@@ -235,6 +240,7 @@ const routes = {
     story1: renderStory1,
     story2: renderStory2,
     story3: renderStory3,
+    story4: renderStory4,
     final: renderFinal,
     rules: renderRules
 };
@@ -245,6 +251,7 @@ export const restartAllowedPages = new Set([
     "puzzle2",
     "puzzle2extra",
     "puzzle3",
+    "puzzle3extra",
     "puzzle4",
     "puzzle5",
     "puzzle6",
@@ -252,6 +259,7 @@ export const restartAllowedPages = new Set([
     "story1",
     "story2",
     "story3",
+    "story4",
     "final"
 ]);
 
