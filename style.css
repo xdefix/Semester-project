@@ -1658,7 +1658,7 @@ input:-webkit-autofill:active {
 
 .puzzle-route-box {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 
   align-items: center;
   justify-content: space-between;
@@ -1673,6 +1673,8 @@ input:-webkit-autofill:active {
 
   display: flex;
   flex-direction: column;
+  align-self: flex-start;
+  padding-left: 200px;
 
   gap: 18px;
 
@@ -1692,8 +1694,8 @@ input:-webkit-autofill:active {
 }
 
 .route-image {
-  width: 100%;
-  max-width: 340px;
+  width: 200%;
+  max-width: 700px;
 
   object-fit: contain;
 
