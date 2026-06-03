@@ -223,7 +223,7 @@ export function renderPuzzle5(app) {
   };
 
   // ---------- CONTINUE ----------
-  app.querySelector("#continue-btn").onclick = () => {
+  function handleContinue() {
 
     const numberInput1 = app.querySelector("#number-input");
     const answerInput1 = app.querySelector("#answer-input");
@@ -256,7 +256,6 @@ export function renderPuzzle5(app) {
 
     const correctNumbers = num1 === "3" && num2 === "3";
 
-    // prevents same answer in both fields, even singular/plural variants
     const notSame = ans1 !== ans2;
 
     if (correctNumbers && isValidText1 && isValidText2 && notSame) {
@@ -264,7 +263,30 @@ export function renderPuzzle5(app) {
     } else {
       showPopup(t("wrong"));
     }
-  };
+  }
+
+  // button click
+  app.querySelector("#continue-btn").onclick = handleContinue;
+
+  // ENTER key support (from any of the inputs)
+  const inputs = [
+    app.querySelector("#number-input"),
+    app.querySelector("#answer-input"),
+    app.querySelector("#number-input-2"),
+    app.querySelector("#answer-input-2")
+  ];
+
+  inputs.forEach(input => {
+    input.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter") return;
+
+      e.preventDefault();
+
+      if (timerState.paused) return;
+
+      handleContinue();
+    });
+  });
 
   // ---------- BACK ----------
   app.querySelector("#back-btn").onclick = () => {

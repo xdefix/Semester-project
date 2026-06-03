@@ -209,8 +209,7 @@ export function renderPuzzle3(app) {
   };
 
   // ---------- CONTINUE ----------
-  app.querySelector("#continue-btn").onclick = () => {
-
+  function handleContinue() {
     const codeTitle = app.querySelector("#answer-input-title")
       .value
       .trim()
@@ -235,7 +234,29 @@ export function renderPuzzle3(app) {
     } else {
       showPopup(t("wrong"));
     }
-  };
+  }
+
+  // button click
+  app.querySelector("#continue-btn").onclick = handleContinue;
+
+  // ENTER key support (from any input field)
+  const inputs = [
+    app.querySelector("#answer-input-title"),
+    app.querySelector("#answer-input-colour"),
+    app.querySelector("#answer-input-word")
+  ];
+
+  inputs.forEach(input => {
+    input.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter") return;
+
+      e.preventDefault();
+
+      if (timerState.paused) return;
+
+      handleContinue();
+    });
+  });
 
   // ---------- BACK ----------
   app.querySelector("#back-btn").onclick = () => {

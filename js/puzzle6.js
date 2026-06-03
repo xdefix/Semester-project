@@ -249,12 +249,11 @@ export function renderPuzzle6(app) {
   };
 
   // ---------------- CONTINUE ----------------
-  app.querySelector("#continue-btn").onclick = () => {
+  function handleContinue() {
     const roman = [...romanInputs].map(i => i.value.trim());
     const letters = [...letterInputs].map(i => i.value.trim());
     const numbers = [...numberInputs].map(i => i.value.trim());
 
-    // example solution (change as needed)
     const correctRoman = "IIIIV";
     const correctLetters = "LPV";
     const correctNumbers = "151620";
@@ -272,7 +271,29 @@ export function renderPuzzle6(app) {
     } else {
       showPopup(t("wrong"));
     }
-  };
+  }
+
+  // button click
+  app.querySelector("#continue-btn").onclick = handleContinue;
+
+  // ENTER key support (from any input involved)
+  const allInputs = [
+    ...romanInputs,
+    ...letterInputs,
+    ...numberInputs
+  ];
+
+  allInputs.forEach(input => {
+    input.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter") return;
+
+      e.preventDefault();
+
+      if (timerState.paused) return;
+
+      handleContinue();
+    });
+  });
 
   // ---------------- BACK ----------------
   app.querySelector("#back-btn").onclick = () => {

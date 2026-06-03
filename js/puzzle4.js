@@ -162,15 +162,33 @@ export function renderPuzzle4(app) {
   };
 
   // ---------- CONTINUE ----------
-  app.querySelector("#continue-btn").onclick = () => {
-    const answer = app.querySelector("#answer-input").value.trim();
+  function handleContinue() {
+    const answer = app.querySelector("#answer-input")
+      .value
+      .trim();
 
     if (answer === "6186") {
       navigate("story2");
     } else {
       showPopup(t("wrong"));
     }
-  };
+  }
+
+  // button click
+  app.querySelector("#continue-btn").onclick = handleContinue;
+
+  // ENTER key support
+  const input = app.querySelector("#answer-input");
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter") return;
+
+    e.preventDefault();
+
+    if (timerState.paused) return;
+
+    handleContinue();
+  });
 
   // ---------- BACK ----------
   app.querySelector("#back-btn").onclick = () => {

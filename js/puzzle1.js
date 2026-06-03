@@ -231,7 +231,7 @@ export function renderPuzzle1(app) {
   };
 
   // ---------- CONTINUE ----------
-  app.querySelector("#continue-btn").onclick = () => {
+  function handleContinue() {
     const parsed = parseDate();
 
     if (!parsed) {
@@ -246,8 +246,21 @@ export function renderPuzzle1(app) {
     } else {
       showPopup(t("wrong"));
     }
-  };
+  }
 
+  // button click
+  app.querySelector("#continue-btn").onclick = handleContinue;
+
+  // ENTER key support
+  dateInput.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter") return;
+
+    e.preventDefault();
+
+    if (timerState.paused) return;
+
+    handleContinue();
+  });
   // ---------- BACK ----------
   app.querySelector("#back-btn").onclick = () => {
     goBack();
