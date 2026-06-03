@@ -7,6 +7,7 @@ export function renderDownload(app) {
      <button id="back-btn" class="top-back-btn">${t("back")}</button>
       <div class="content-box2">
         <p>${t("download_info")}</p>
+        <p>${t("download_info2")}</p>
       </div>
 
       <div class="buttons" >

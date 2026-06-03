@@ -3,6 +3,7 @@
   "description": "Eine Gruppe von Freunden im Kriegs-St. Pölten versucht, Ellis verhafteten Verlobten zu finden, bevor er im nationalsozialistischen Haftsystem verschwindet. Auf der Spur gefälschter Dokumente, Patrouillenpläne und verschlüsselter Codes geraten sie tiefer in ein Netz aus Gefahr und Täuschung — wo jeder Hinweis neue Risiken birgt und jede Entscheidung sein Schicksal verändern könnte. Was sie am Ende der Spur erwartet, bleibt ungewiss",
   "download": "Dateien herunterladen",
   "download_info": "Lade die Spieldateien als PDF herunter, indem du auf den Button unten klickst. Drucke das Dokument aus und bereite alles wie auf der ersten Seite beschrieben vor. Während des Spiels nutzt du die Seiten in Etappen — jeweils nur die benötigten Seiten. Sobald eine Seite ihren Zweck erfüllt hat, kannst du sie ablegen und mit dem nächsten Abschnitt fortfahren.",
+  "download_info2":"Für weitere Musikoptioner bieten wir eine spezielle Playlist auf Spotify an. <a href=\"https://open.spotify.com/playlist/6I84Q7Z9zKo69T3Z1GpqiF?si=bbbc445c424e4aa5\" target=\"_blank\">Hier klicken, um sie abzuspielen</a>",
   "start": "Spiel starten",
   "back": "< Zurück",
   "continue": "Weiter",
@@ -123,6 +124,7 @@
 
   "info_title": "Datenvisualisierung Info",
   "info_title2": "Geschichtsinfo",
+
   "info_text_left": "Dieses Rätsel nutzt Datenvisualisierung. Achte auf Muster und Zusammenhänge.",
   "info_text_right": "N/A",
 
