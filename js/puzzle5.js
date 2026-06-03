@@ -230,27 +230,33 @@ export function renderPuzzle5(app) {
     const numberInput2 = app.querySelector("#number-input-2");
     const answerInput2 = app.querySelector("#answer-input-2");
 
-    // safety guard (prevents crash)
     if (!numberInput1 || !answerInput1 || !numberInput2 || !answerInput2) {
       console.error("Missing input fields in DOM");
       showPopup(t("wrong"));
       return;
     }
 
+    const normalizeAnswer = (answer) =>
+      answer
+        .trim()
+        .toUpperCase()
+        .replace(/^POLITICAL PRISONERS$/, "POLITICAL PRISONER")
+        .replace(/^SABOTEURS$/, "SABOTEUR");
+
     const num1 = numberInput1.value.trim();
-    const ans1 = answerInput1.value.trim().toUpperCase();
+    const ans1 = normalizeAnswer(answerInput1.value);
 
     const num2 = numberInput2.value.trim();
-    const ans2 = answerInput2.value.trim().toUpperCase();
+    const ans2 = normalizeAnswer(answerInput2.value);
 
-    const validAnswers = ["POLITICAL PRISONERS", "SABOTEURS"];
+    const validAnswers = ["POLITICAL PRISONER", "SABOTEUR"];
 
     const isValidText1 = validAnswers.includes(ans1);
     const isValidText2 = validAnswers.includes(ans2);
 
     const correctNumbers = num1 === "3" && num2 === "3";
 
-    // both fields must contain valid but NOT same answer
+    // prevents same answer in both fields, even singular/plural variants
     const notSame = ans1 !== ans2;
 
     if (correctNumbers && isValidText1 && isValidText2 && notSame) {
