@@ -147,10 +147,33 @@ export function renderPuzzle6(app) {
 
   const info = createInfoOverlay(app, {
     t,
-    title: t("info_title"),
-    title2: t("info_title2"),
-    leftText: t("info_text_left6"),
-    rightText: t("info_text_right6")
+    pages: [
+      {
+        title: t("info_title"),
+        text: t("info_text_left6"),
+
+        title2: t("info_title"),
+        text2: t("info_text_right6")
+      },
+      {
+        title: t("info_title"),
+        text: t("info_text_left6.2"),
+
+        title2: t("info_title2"),
+        text2: t("info_text_right6.2")
+      },
+      {
+        title: t("info_title2"),
+        text: t("info_text_left6.3"),
+
+        title2: t("info_title2"),
+        text2: t("info_text_right6.3")
+      },
+      {
+        title: t("info_title2"),
+        text: t("info_text_left6.4"),
+      }
+    ]
   });
 
   // ---------------- INPUT ELEMENTS ----------------

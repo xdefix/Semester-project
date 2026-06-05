@@ -92,10 +92,29 @@ export function renderPuzzle4(app) {
 
   const info = createInfoOverlay(app, {
     t,
-    title: t("info_title"),
-    title2: t("info_title2"),
-    leftText: t("info_text_left4"),
-    rightText: t("info_text_right4")
+    pages: [
+      {
+        title: t("info_title"),
+        text: t("info_text_left4"),
+
+        title2: t("info_title2"),
+        text2: t("info_text_right4")
+      },
+      {
+        title: t("info_title2"),
+        text: t("info_text_left4.2"),
+
+        title2: t("info_title2"),
+        text2: t("info_text_right4.2")
+      },
+      {
+        title: t("info_title2"),
+        text: t("info_text_left4.3"),
+
+        title2: t("info_title2"),
+        text2: t("info_text_right4.3")
+      }
+    ]
   });
 
   // ---------------- TIMER ----------------

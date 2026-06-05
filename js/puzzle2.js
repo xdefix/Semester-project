@@ -126,10 +126,26 @@ export function renderPuzzle2(app) {
 
   const info = createInfoOverlay(app, {
     t,
-    title: t("info_title"),
-    title2: t("info_title2"),
-    leftText: t("info_text_left2"),
-    rightText: t("info_text_right2")
+    pages: [
+      {
+        title: t("info_title"),
+        text: t("info_text_left2"),
+
+        title2: t("info_title2"),
+        text2: t("info_text_right2")
+      },
+      {
+        title: t("info_title2"),
+        text: t("info_text_left2.2"),
+
+        title2: t("info_title2"),
+        text2: t("info_text_right2.2")
+      },
+      {
+        title: t("info_title2"),
+        text: t("info_text_left2.3")
+      }
+    ]
   });
 
   // --------------------------------------------------
@@ -174,7 +190,7 @@ export function renderPuzzle2(app) {
 
     maria_theresia: {
       step: 2,
-      image: `${window.BASE_PATH}images/puzzle2/maria-theresia.png`,
+      image: `${window.BASE_PATH}images/puzzle2/maria-theresia.jpg`,
       location: "Maria Theresia Straße",
       elli: t("puzzle2_maria_elli"),
       choices: [

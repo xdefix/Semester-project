@@ -31,7 +31,8 @@ body {
   min-height: 100vh;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -571,8 +572,8 @@ input {
 
   margin: 0;
 
-  text-transform: uppercase;  
-  
+  text-transform: uppercase;
+
   text-decoration: underline;
   text-decoration-color: black;
   text-underline-offset: 3px;
@@ -771,7 +772,9 @@ input {
 
   transform: translateX(-50%);
 
-  width: min(600px, 60%);
+  width: min(800px, 80%);
+
+  height: 400px;
 
   display: flex;
   gap: 100px;
@@ -782,24 +785,49 @@ input {
 }
 
 .info-title {
-  margin: 0 0 10px 0;
+  position: absolute;
 
-  font-size: 1.1rem;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  margin: 0;
+
   text-align: center;
+  font-size: 1.1rem;
 
   color: black;
 }
 
 .info-left,
 .info-right {
+  position: relative;
+
   flex: 1;
   padding: 12px;
 
-  background: transparent; /* or just remove this line */
+  background: transparent;
+  /* or just remove this line */
   color: black;
 
-  border-radius: 0; /* optional since no box anymore */
+  border-radius: 0;
+  /* optional since no box anymore */
   text-align: left;
+}
+
+.info-page-text {
+  position: absolute;
+
+  top: 45px;
+  /* below title */
+  left: 12px;
+  right: 12px;
+  /* bottom: 55px; */
+  /* leave room for arrow */
+
+  overflow-y: auto;
+
+  margin: 0;
 }
 
 #close-info {
@@ -1467,7 +1495,7 @@ input:-webkit-autofill:active {
   top: 0;
   left: 0;
 
-  transform: translate(50px, 0px); 
+  transform: translate(50px, 0px);
 
   width: auto;
 
@@ -1866,4 +1894,104 @@ input:-webkit-autofill:active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/* -------------------------------- */
+/* DIARY PAGE CONTAINERS */
+/* -------------------------------- */
+
+.info-page-container {
+  position: relative;
+}
+
+.info-page-text {
+  padding-bottom: 60px;
+}
+
+/* -------------------------------- */
+/* ARROW BUTTON BASE */
+/* -------------------------------- */
+
+.info-page-arrow {
+  position: absolute;
+
+
+  bottom: 8px;
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  background: transparent;
+
+  padding: 0;
+  margin: 0;
+
+  cursor: pointer;
+
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-page-arrow img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.15s ease,
+    filter 0.2s ease;
+}
+
+/* -------------------------------- */
+/* LEFT PAGE ARROW */
+/* -------------------------------- */
+
+.info-page-arrow-left {
+  left: -20px;
+  bottom: -20px;
+}
+
+/* -------------------------------- */
+/* RIGHT PAGE ARROW */
+/* -------------------------------- */
+
+.info-page-arrow-right {
+  right: 8px;
+  bottom: -40px;
+}
+
+/* -------------------------------- */
+/* HOVER */
+/* -------------------------------- */
+
+.info-page-arrow:hover:not(.info-page-arrow-disabled) img {
+  transform: scale(1.08);
+}
+
+/* -------------------------------- */
+/* DISABLED */
+/* -------------------------------- */
+
+.info-page-arrow-disabled {
+  cursor: default;
+}
+
+.info-page-arrow-disabled img {
+  /* opacity: 0.3;
+   */
+   display: none;
+}
+
+/* -------------------------------- */
+/* ACTIVE */
+/* -------------------------------- */
+
+.info-page-arrow:active:not(.info-page-arrow-disabled) img {
+  transform: scale(0.95);
 }

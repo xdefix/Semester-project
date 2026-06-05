@@ -94,10 +94,29 @@ export function renderPuzzle1(app) {
 
   const info = createInfoOverlay(app, {
     t,
-    title: t("info_title"),
-    title2: t("info_title2"),
-    leftText: t("info_text_left"),
-    rightText: t("info_text_right")
+    pages: [
+      {
+        title: t("info_title"),
+        text: t("info_text_left"),
+
+        title2: t("info_title2"),
+        text2: t("info_text_right")
+      },
+
+      {
+        title: t("info_title2"),
+        text: t("info_text_left.2"),
+
+        title2: t("info_title2"),
+        text2: t("info_text_right.2")
+      },
+
+      {
+        title: t("info_title2"),
+        text: t("info_text_left.3")
+
+      }
+    ]
   });
 
   // ---------------- INPUT LOGIC ----------------
