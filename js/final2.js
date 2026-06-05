@@ -35,7 +35,7 @@ export function renderFinal2(app) {
       <div class="buttons">
         <button id="restart-btn" class="action-btn">${t("play_again")}</button>
               
-        <a href="files/game-files.odt" download  >
+        <a href="${window.BASE_PATH}files/End_of_Game_Debrief.pdf" download  >
          <button class="action-btn"> ${t("download_diary")} </button>
         </a>
       </div>

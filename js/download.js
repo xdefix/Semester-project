@@ -11,7 +11,7 @@ export function renderDownload(app) {
       </div>
 
       <div class="buttons" >
-        <a href="files/game-files.odt" download  >
+        <a href="${window.BASE_PATH}files/Setup_Guide.pdf" download  >
          <button class="action-btn"> ${t("download")} </button>
         </a>
 
