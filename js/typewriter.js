@@ -72,7 +72,16 @@ export async function typewriteParagraphs(
     skipAnimation = true;
   }
 
+  function keySkipHandler(event) {
+    if (pauseCheck?.()) return;
+
+    if ( event.code === "Space") {
+      skipAnimation = true;
+    }
+  }
+
   document.addEventListener("pointerdown", skipHandler);
+  document.addEventListener("keydown", keySkipHandler);
 
   // ---------------- TYPE LOOP ----------------
   for (const p of paragraphs) {
@@ -120,6 +129,7 @@ export async function typewriteParagraphs(
   }
 
   document.removeEventListener("pointerdown", skipHandler);
+document.removeEventListener("keydown", keySkipHandler);
 
   stopTypewriter();
   markVisited(pageId);
