@@ -15,6 +15,8 @@ export function renderRules(app) {
           <li>${t("rule_clues")}</li>
           <li>${t("rule_diary")}</li>
           <li>${t("rule_settings")}</li>
+          <li>${t("rule_extra")}</li>
+          <li>${t("rule_file")}</li>
         </ul>
       </div>
 
