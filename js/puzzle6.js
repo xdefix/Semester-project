@@ -50,11 +50,6 @@ export function renderPuzzle6(app) {
       <p class="story-text">${t("puzzle6_story")}</p>
       <p class="story-text">${t("puzzle6_story2")}</p>
       <p class="story-text">${t("puzzle6_story3")}</p>
-      <p class="story-text">${t("puzzle6_story4")}</p>
-      <p class="story-text">${t("puzzle6_story5")}</p>
-      <p class="story-text">${t("puzzle6_story6")}</p>
-      <p class="story-text">${t("puzzle6_story7")}</p>
-      <p class="story-text">${t("puzzle6_story8")}</p>
 
 <!-- INPUT GRID -->
 <div class="puzzle6-grid">

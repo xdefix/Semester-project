@@ -26,10 +26,9 @@ export function renderFinal2(app) {
         <p class="story-text">${t("final_story2")}</p>
         <p class="story-text">${t("final_story3")}</p>
         <p class="story-text">${t("final_story4")}</p>
-        <p class="story-text">${t("final_story5")}</p>
-        <p class="story-text">${t("final_story6")}</p>
-        <p class="story-text">${t("final_story7")}</p>
-        <p class="story-text">${t("final_story8")}</p>
+        <p class="story-text">${t("final_story5.2")}</p>
+        <p class="story-text">${t("final_story6.2")}</p>
+        <p class="story-text">${t("final_story7.2")}</p>
       </div>
 
       <div class="buttons">

@@ -30,6 +30,7 @@ export function renderFinal(app) {
         <p class="story-text">${t("final_story6")}</p>
         <p class="story-text">${t("final_story7")}</p>
         <p class="story-text">${t("final_story8")}</p>
+        <p class="story-text">${t("final_story9")}</p>
       </div>
 
       <div class="buttons">
