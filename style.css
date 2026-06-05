@@ -929,6 +929,29 @@ input {
   transform: scale(0.98);
 }
 
+.action-btn2 {
+  width: clamp(130px, 14vw, 210px);
+  height: clamp(75px, 10vh, 120px);
+
+  border: none;
+
+  background: url("images/button.png") center/55% 100% no-repeat;
+  background-color: transparent;
+
+  color: #f3e6cf;
+  font-size: 18px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  position: relative;
+  z-index: 9000;
+}
+
+.action-btn2:active {
+  transform: scale(0.98);
+}
+
 /* settings */
 
 .settings-btn {
@@ -1985,7 +2008,7 @@ input:-webkit-autofill:active {
 .info-page-arrow-disabled img {
   /* opacity: 0.3;
    */
-   display: none;
+  display: none;
 }
 
 /* -------------------------------- */

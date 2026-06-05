@@ -47,6 +47,18 @@ function updateSettingsTexts() {
       restartBtn.style.display = "none";
     }
   }
+
+  const muteMusicBtn =
+  document.getElementById("mute-music-btn");
+
+const muteSfxBtn =
+  document.getElementById("mute-sfx-btn");
+
+if (muteMusicBtn)
+  muteMusicBtn.textContent = t("mute");
+
+if (muteSfxBtn)
+  muteSfxBtn.textContent = t("mute");
 }
 
 // ---------------- OVERLAY HTML ----------------
@@ -95,6 +107,7 @@ export function renderSettingsOverlay() {
       </div>
 
     </div>
+        <button id="mute-music-btn" class="action-btn2">${t("mute")}</button>
   </div>
 
   <!-- SFX -->
@@ -117,6 +130,7 @@ export function renderSettingsOverlay() {
       </div>
 
     </div>
+        <button id="mute-sfx-btn" class="action-btn2">${t("mute")}</button>
   </div>
 
 </div>
@@ -353,6 +367,15 @@ export function initSettingsEvents() {
     document.getElementById(
       "sfx-ticks"
     );
+  const muteMusicBtn =
+    document.getElementById(
+      "mute-music-btn"
+    );
+
+  const muteSfxBtn =
+    document.getElementById(
+      "mute-sfx-btn"
+    );
 
   if (!overlay || !btn || !closeBtn) return;
 
@@ -449,6 +472,18 @@ export function initSettingsEvents() {
       setSfxVolume(value);
     }
   );
+
+  if (muteMusicBtn) {
+    muteMusicBtn.onclick = () => {
+      musicControl.render(0);
+    };
+  }
+
+  if (muteSfxBtn) {
+    muteSfxBtn.onclick = () => {
+      sfxControl.render(0);
+    };
+  }
 
   // INITIAL VALUES
   musicControl.render(
