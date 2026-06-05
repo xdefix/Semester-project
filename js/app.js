@@ -15,6 +15,7 @@ import { renderStory2 } from "./story2.js";
 import { renderStory3 } from "./story3.js";
 import { renderStory4 } from "./story4.js";
 import { renderFinal } from "./final.js";
+import { renderFinal2 } from "./final2.js";
 import { renderRules } from "./rules.js";
 import { showPopup, hidePopup, initPopup } from "./popup.js";
 import { renderSettingsOverlay, initSettingsEvents } from "./settings.js";
@@ -59,7 +60,7 @@ export function getRemainingTime() {
         (Date.now() - timerState.startTimestamp) / 1000
     );
 
-    return Math.max(0, timerState.totalTime - elapsed);
+    return timerState.totalTime - elapsed;
 }
 
 // ---------------- TIMER START ----------------
@@ -81,12 +82,6 @@ export function startTimer(updateUI) {
 
         updateUI?.();
         window.__helpSync?.();
-
-        if (getRemainingTime() <= 0) {
-            clearInterval(timerState.interval);
-            timerState.interval = null;
-            showPopup("time_up");
-        }
     }, 1000);
 }
 
@@ -97,13 +92,19 @@ export function togglePause(updateUI) {
 }
 
 export function formatTime(seconds) {
-    if (!Number.isFinite(seconds) || seconds < 0) {
+    if (!Number.isFinite(seconds)) {
         return "00:00";
     }
 
-    const m = String(Math.floor(seconds / 60)).padStart(2, "0");
-    const s = String(seconds % 60).padStart(2, "0");
-    return `${m}:${s}`;
+    const negative = seconds < 0;
+    const absSeconds = Math.abs(seconds);
+
+    const m = String(Math.floor(absSeconds / 60)).padStart(2, "0");
+    const s = String(absSeconds % 60).padStart(2, "0");
+
+    return negative
+        ? `-${m}:${s}`
+        : `${m}:${s}`;
 }
 
 export function formatElapsed(seconds) {
@@ -128,6 +129,10 @@ export function getElapsedTime() {
     return Math.floor(
         (Date.now() - timerState.startTimestamp) / 1000
     );
+}
+
+export function isOverTimeLimit() {
+    return getElapsedTime() > timerState.totalTime;
 }
 
 // ---------------- RESET GAME (FULL CLEAN) ----------------
@@ -180,7 +185,8 @@ export function goBack() {
         "puzzle6",
         "puzzle7",
         "story4",
-        "final"
+        "final",
+        "final2"
     ]);
 
     const previousPage =
@@ -242,6 +248,7 @@ const routes = {
     story3: renderStory3,
     story4: renderStory4,
     final: renderFinal,
+    final2: renderFinal2,
     rules: renderRules
 };
 

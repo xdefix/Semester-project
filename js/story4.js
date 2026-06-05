@@ -5,7 +5,8 @@ import {
   togglePause,
   formatTime,
   getRemainingTime,
-  navigate
+  navigate,
+  isOverTimeLimit
 } from "./app.js";
 import { typewriteParagraphs } from "./typewriter.js";
 
@@ -68,9 +69,13 @@ export function renderStory4(app) {
 
   pauseBtn.onclick = () => togglePause(updateUI);
 
-  app.querySelector("#continue-btn").onclick = () => {
-    navigate("final");
-  };
+app.querySelector("#continue-btn").onclick = () => {
+  navigate(
+    isOverTimeLimit()
+      ? "final2"
+      : "final"
+  );
+};
   app.querySelector("#back-btn").onclick = () => {
     goBack();
   };
