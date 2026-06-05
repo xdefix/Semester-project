@@ -48,7 +48,7 @@ export function renderFinal2(app) {
     app.querySelector(".content-box1");
 
   typewriteParagraphs(storyBox, {
-    pageId: "intro",
+    pageId: "final2",
     sound: true
   });
 
