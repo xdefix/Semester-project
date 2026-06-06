@@ -82,6 +82,7 @@ export function renderSettingsOverlay() {
           <div class="language-buttons">
             <button data-no-sound class="lang-btn" data-lang="en">[EN]</button>
             <button data-no-sound class="lang-btn" data-lang="de">[DE]</button>
+            <button data-no-sound class="lang-btn" data-lang="bg">[BG]</button>
           </div>
         </div>
 
