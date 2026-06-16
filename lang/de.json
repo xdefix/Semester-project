@@ -176,7 +176,6 @@
   "info_text_right6.3": "Doch das System war nicht unbesiegbar. Bereits vor und während des Krieges arbeiteten Mathematiker, Kryptoanalytiker und Nachrichtendienste daran, Schwächen der Maschine und ihrer Nutzung zu entdecken.",
   "info_text_left6.4": "Frühe Durchbrüche polnischer Codeknacker wurden später von britischen Teams unter der Leitung von Alan Turing erweitert. Durch das Erkennen von Mustern und die Ausnutzung menschlicher Fehler gelang es den Alliierten nach und nach, Enigma-Nachrichten zu lesen.",
 
-
   "reveal1": "Erster Hinweis: Aber irgendetwas fühlt sich falsch an. Dieses Liniendiagramm könnte gefälscht sein.",
   "reveal2": "Zweiter Hinweis: Moment... siehst du es? Die y-Achse ist vertauscht. Das ändert alles.",
   "reveal3": "Lösung:  Warte... wenn die y-Achse vertauscht ist, ist der tiefste Punkt eigentlich der höchste Wert. Das bedeutet, dass der 14. April heraussticht.",
@@ -216,8 +215,10 @@
   "pages_needed": "BENÖTIGTE SEITEN:",
   "page_needed": "BENÖTIGTE SEITE:",
 
+
   "congrats": "Glückwunsch! Du hast es in {time} geschafft",
 
+  
   "choose_route": "Nächste Route wählen",
   "puzzle2_start_elli": "Wir müssen zur Goldegger Straße. Welchen Weg nehmen wir?",
   "puzzle2_schubert_elli": "Mariazeller Straße geht nach Süden. Josef Straße direkt nach Norden.",
