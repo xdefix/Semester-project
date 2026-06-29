@@ -1,8 +1,8 @@
 {
-  "title": "Truth Seeker - Axis of distortion",
-  "description": "A group of friends in wartime St. Pölten race to find Elli’s arrested fiancé before he vanishes into the Nazi detention system. Following a trail of forged documents, patrol maps  encoded ciphers, they push deeper into a web of danger and deception—where every clue uncovers new risks and every decision could change his fate. What awaits them at the end of the trail remains uncertain",
+  "title": "Truth Seeker - Axis of Distortion",
+  "description": "A group of friends in wartime St. Pölten race to find Elli’s arrested fiancé before he vanishes into the Nazi detention system. Following a trail of forged documents, patrol maps  encoded ciphers, they push deeper into a web of danger and deception, where every clue uncovers new risks and every decision could change his fate. What awaits them at the end of the trail remains uncertain.",
   "download": "Download files",
-  "download_info": "Download the game files as a PDF by clicking the button below. Print the document and set everything up as explained on the first page. During gameplay, you’ll use the pages in stages—taking only the ones you need at each moment. Once a page has served its purpose, you can discard it and continue with the next part.",
+  "download_info": "Download the game files as a PDF by clicking the button below. Print the document and set everything up as explained on the first page. During gameplay, you’ll use the pages in stages, taking only the ones you need at each moment. Once a page has served its purpose, you can discard it and continue with the next part.",
   "download_info2": "For more music options we offer a special playlist in Spotify. <a href=\"https://open.spotify.com/playlist/6I84Q7Z9zKo69T3Z1GpqiF?si=bbbc445c424e4aa5\" target=\"_blank\">Click here to play</a>",
   "start": "Start game",
   "back": "< Go Back",
@@ -65,7 +65,7 @@
   "final_story4": "The soldier silently searches through several lists before slowly looking back up at her. ",
   "final_story5": "“Ma’am” he says quietly. “Your fiancé is among the prisoners we found after liberating the camp.” ",
   "final_story6": "He hesitates for a moment before continuing. ",
-  "final_story7": "“It appears that his late arrival and the surrounding chaos proved useful. He isn’t receiving medical care and is currently waiting at the upper barracks.” ",
+  "final_story7": "“It appears that his late arrival and the surrounding chaos proved useful. He is receiving medical care and is currently waiting at the upper barracks.” ",
   "final_story8": "After hearing this, Elli immediately hugs the G.I. and walks full of new hope and vigour up the street looking for her fiancé. You fall back as you can’t keep up with your friend’s newly gained enthusiasm. As she is leaving your sight, you feel a fresh breeze flowing through your hair.  ",
   "final_story9": "Now, what belongs together is coming together. ",
 
@@ -110,7 +110,7 @@
   "puzzle5_story1": "From the earlier incident report, the group already knows that Elli’s fiancé was classified as a political prisoner. That makes the discrepancy especially significant. For Elli, that makes the chart impossible to ignore. The urge to find out who those political prisoners were is too strong, and she immediately begins checking the other papers in the safe for anything that might name them or explain where they were taken. ",
 
   "puzzle6_story": "To decrypt the letter, you can use the Enigma machine stored within the safe house. Using the documents, you must identify the correct numbers and letters and enter them into the machine.",
-  "puzzle6_story2": "The encrypted letter is linked to a censored document that also contains the name of Elli’s fiancé, “Elias Richter,” along with other names recognized by members of the resistance in the safe house. These names are associated with their wider network.",
+  "puzzle6_story2": "The encrypted letter is linked to a censored document that also contains the name of Elli’s fiancé, “Elias Richter,” along with other names recognized by members of the resistance in the safe house. All names are associated with their wider network.",
   "puzzle6_story3": "(ENTER ALL ANSWERS IN AN ASCENDING ORDER AKA 1,2,3/A,B,C)",
 
   "puzzle7_story": "You managed to decrypt the letter. By comparing the available documents, you can now trace where Elli’s fiancé has been taken.",
@@ -192,17 +192,17 @@
   "reveal2.3": "Second clue: Now calculate K × I × F and D + A + P. Then subtract the second result from the first.",
   "reveal3.3": "Solution: I figured out the Result! It’s 6186.",
 
-  "reveal1.4": "First Clue: Don’t read the diagram as separate labels — follow the flow from where the prisoners enter to where they leave.",
+  "reveal1.4": "First Clue: Don’t read the diagram as separate labels. Follow the flow from where the prisoners enter to where they leave.",
   "reveal2.4": "Second Clue: Look closely at Melk. Compare how many prisoners arrive there with how many leave through the two Melk routes.",
   "reveal3.4": "Solution: At Melk, 45 prisoners arrive but only 39 leave, meaning 6 are missing and by matching the category symbols for Political Prisoners and Saboteurs, the missing six are identified as 3 Political Prisoners and 3 Saboteurs. ",
 
   "reveal1.5": "First Clue: look which cities have the most reliable connections and have the most military machinery sent to them",
   "reveal2.5": "Second Clue: In all 3 documents the answers are connected same cities and units",
-  "reveal3.5": "Solution:Correct answers in order- Roman numbers: I,II,IV; Letters: L, P, V; Numbers: 15, 16, 20",
+  "reveal3.5": "Solution: Correct answers in order: Roman numbers: I,II,IV; Letters: L, P, V; Numbers: 15, 16, 20",
 
   "reveal1.6": "First Clue: The names on the list and document match",
   "reveal2.6": "Second Clue: Connect each name on the document with a place",
-  "reveal3.6": "Solution: He was sent to Mauthausen",
+  "reveal3.6": "Solution: He was sent to Mauthausen!",
 
   "settings": "Settings",
   "language": "Language",
